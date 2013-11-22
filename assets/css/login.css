@@ -55,7 +55,7 @@ a:hover{
 	padding-bottom: 40px;
 	padding-bottom: -20px;
 }
-input#username, input#password{
+input#user, input#pass{
 	background: #fafafa;
 	border: 1px solid #eee;
 	font-size: 18px;

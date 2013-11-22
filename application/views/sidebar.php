@@ -13,8 +13,8 @@
 				Lakeside, Pokhara
 			</div>
 			<div class="inn-buttons" id="sidebar-buttons">
-				<a href="">Setting</a>
-				<a href="">profile</a>
+				<a href="">Profile</a>
+				<a href="logout">Logout</a>
 			</div>
 		</div>
 	</div>

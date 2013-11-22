@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Nepal Inn | Login</title>
+	<title><?php echo $title; ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/login.css'); ?>">
 </head>
 <body>
@@ -10,17 +10,19 @@
 		</div>
 		<div id="login-main">
 			<div class="login-form">
-			<form name="login" method="POST" action="#" >
+			<form name="login" method="POST" action="login_entry" >
 				<div id="username">
 					<label>Username: </label></br>
-					<input type="text" name="email"  id="username" class="text-box" /></br>
+					<input type="text" name="user"  id="user" class="text-box" /></br>
 				</div>
 				<div id="password">
 					<label>Password:</label> </br>
-					<input type="password" name="password"  id="password" class="text-box" /></br>
+					<input type="password" name="pass"  id="pass" class="text-box" /></br>
 				</div>
+				<div id="msg"></div>
+				<span id="load"></span>
 				<div id="button">
-					<input type="submit" value="Login To Nepal Inn" class="register-button">
+					<input type="submit" name="login" id="submit-button" value="Login To Nepal Inn" class="register-button">
 				</div>
 				<div id="forget">
 					<p><a href="">Forget Password?</a>
@@ -32,6 +34,10 @@
 		</div>
 		</div>
 	</div>
+
+	<!--script links-->
+	<script src="<?php echo base_url('assets/js/jquery.js');?>"></script>
+ 	<script src="<?php echo base_url('assets/js/jq.js');?>"></script><!--script ends here-->
 </body>
 </html>
 	
