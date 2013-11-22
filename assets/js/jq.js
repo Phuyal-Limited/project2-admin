@@ -23,7 +23,7 @@ $(document).ready(function(){
 				pass: pass 
 			},
 			beforeSend: function(){
-				$("#load").html('<img src="http://localhost/admin.nepalinn.com/assets/images/loading.gif" height="20px" width="20px">');
+				$("#load").html('<img src="http://admin.nepalinn.com/assets/images/loading.gif" height="20px" width="20px">');
 			},
 			success: function(response){
 				$("#load").hide('');

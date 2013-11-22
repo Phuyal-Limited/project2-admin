@@ -1,6 +1,6 @@
 <?php
 	if(!isset($this->session->userdata['user_id']) && !isset($this->session->userdata['username']) && !isset($this->session->userdata['full_name']) && !isset($this->session->userdata['hotel_id'])){
-		redirect('home');
+		redirect('login');
 	}
 ?>
 <!DOCTYPE html>
