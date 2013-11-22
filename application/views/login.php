@@ -1,4 +1,9 @@
-
+<html>
+<head>
+	<title>Nepal Inn | Login</title>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/login.css'); ?>">
+</head>
+<body>
 	<div class="wrapper">	
 		<div id="logo">
 			<a href="index.php"><img src="<?php echo base_url('assets/images/logo.png'); ?>"> </a>
@@ -26,6 +31,7 @@
 			</form>
 		</div>
 		</div>
-		
-	
 	</div>
+</body>
+</html>
+	

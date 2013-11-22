@@ -6,18 +6,21 @@ class Nepalinn extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Hotelinn | Loign';
-		$this->load->view('header', $data);
-		$this->load->view('login');
-		$this->load->view('footer');
+		$this->load->view('login', $data);
 	}
 	
 	public function login()
 	{
-		$this->load->view('header');
 		$this->load->view('login');
+	}
+
+	public function home()
+	{
+		$this->load->view('header');
+		$this->load->view('home');
 		$this->load->view('footer');
 	}
 
-	
+
 }
 

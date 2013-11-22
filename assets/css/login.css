@@ -5,10 +5,9 @@ html,body{
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;*/
-	background-color:#000;
-	height:100%;
-	color:#444135;
+	background-color:#2E2E2E;
 }
+
 label{
 	color:#444135;
 	font: 15px "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
@@ -87,8 +86,8 @@ input#username, input#password{
   text-align: center;
   text-shadow: 0 1px rgba(255, 255, 255, 0.5);
   background: #fcfcfc;
-  border: 1px solid;
-  border-color: #d8d8d8 #d1d1d1 #c3c3c3;
+  border: 1px solid #fff;
+  /*border-color: #d8d8d8 #d1d1d1 #c3c3c3;*/
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -112,4 +111,9 @@ input#username, input#password{
 }
 .register-button:focus {
   outline: 0;
+}
+
+
+.register-button:hover{
+	border: 1px solid #966868;;
 }
