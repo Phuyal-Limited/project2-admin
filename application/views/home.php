@@ -264,7 +264,48 @@
 								<div class="col-md-12"><!-- starts:data-block-big -->
 									<div class="data-block data-block-big" id="available-rooms">
 										<div class="data-block-head">
-											Available Rooms
+											Rooms
+										</div>
+										<div class="data-block-content room-content">
+											<div class="row">
+												<div class="col-md-2 col-xs-3 col-sm-2">
+													<div class="room occupied">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2">
+													<div class="room occupied">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2">
+													<div class="room occupied">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2">
+													<div class="room occupied">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2">
+													<div class="room occupied">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2">
+													<div class="room occupied">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2">
+													<div class="room occupied">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2">
+													<div class="room occupied">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2">
+													<div class="room occupied">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2">
+													<div class="room booked">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2">
+													<div class="room occupied">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2">
+													<div class="room available">209</div>
+												</div>
+												
+											</div>
 										</div>
 									</div>
 								</div><!-- ends:data-block-big -->
@@ -357,7 +398,7 @@
 
 											<div class="row form-row"> <!-- starts:form-row -->
 												<div class="col-sm-4 col-xs-4 col-md-4">
-													<label>Rooms:</label>
+													<label>Details:</label>
 												</div>
 												<div class="col-sm-8 col-xs-8 col-md-8">
 													<textarea class="form-control"></textarea>

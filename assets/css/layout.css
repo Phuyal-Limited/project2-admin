@@ -122,6 +122,11 @@ label{
   color: #ed6f58;
 }
 
+.sidebar-menus i{
+	padding-right: 5px;
+	font-size: 20px;
+}
+
 #breadcrums a {
 	color:#ed6f58;
 }
@@ -217,6 +222,7 @@ padding: 4px 20px;
 
 .data-block-footer{
 	padding-top: 25px;
+	text-transform: uppercase;
 }
 
 .guest-row{
@@ -248,4 +254,30 @@ padding: 4px 20px;
 .footer-dash a:hover{
 	color:#444135;
 	text-decoration: none;
+}
+
+.room-content{
+	padding-top: 20px;
+}
+
+.room{
+	background-color: #ed6f58;
+	text-align: center;
+	padding: 6px;
+	border-radius: 5px;
+	color:#fff;
+	margin-top: 15px;
+	cursor:context-menu;
+}
+
+.available{
+
+}
+
+.booked{
+	background-color: #0E6EA3;
+}
+
+.occupied{
+	background-color: #444135;
 }
