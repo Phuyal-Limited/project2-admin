@@ -68,6 +68,24 @@ class Nepalinn extends CI_Controller {
 		$this->index();
 	}
 
+	public function edit()
+	{
+		$data['title'] = 'Edit | Home';
+		$hotel_id = $this->session->userdata['hotel_id'];
+		$data['hotel_details'] = $this->database->get_Hotel_Details($hotel_id);
+		$data['hotel_facilities'] = $this->database->get_hotel_facilities($hotel_id);
+		
+		$default_image = $data['hotel_details'][0]->default_imgid;
+		$other_image = $data['hotel_details'][0]->image_id;
+		
+		$data['default_image'] = $this->database->get_Image_Details($default_image);
+		$data['other_image'] = $this->database->get_Image_Details($other_image);
+
+		
+		$this->load->view('header', $data);
+		$this->load->view('edit');
+		$this->load->view('footer');
+	}
 
 }
 
