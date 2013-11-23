@@ -264,7 +264,72 @@
 								<div class="col-md-12"><!-- starts:data-block-big -->
 									<div class="data-block data-block-big" id="available-rooms">
 										<div class="data-block-head">
-											Available Rooms
+											Rooms
+										</div>
+										<div class="data-block-content room-content">
+											<div class="row room-boxes"> <!-- starts:room row -->
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no booked">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no occupied">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no available">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no occupied">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no booked">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no available">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no occupied">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no available">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no occupied">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no booked">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no occupied">209</div>
+												</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="Normal Room">
+													<div class="room-no available">209</div>
+												</div>
+											</div><!-- starts:room row -->
+											<div class="row ">
+												<div class="room-filter">
+													<div class="col-md-12 col-sm-12 col-xs-12">
+														<div class="data-block-filter-head">
+															Filter Rooms
+														</div>
+													</div>
+													<div class="col-md-4 col-sm-4 col-xs-4">
+														<select class="form-control">
+															<option>Any Category</option>
+														</select>
+													</div>
+													<div class="col-md-4 col-sm-4 col-xs-4">
+														<input class="form-control" type="text" id="datepicker-from" placeholder="From">
+													</div>
+													<div class="col-md-4 col-sm-4 col-xs-4">
+														<input class="form-control" type="text" id="datepicker-to" placeholder="To">
+													</div>
+													<div id="room-filter-button">
+														<input class="btn btn-default inn-button room-filter-btn"  type="submit" value="Filter">
+													</div>
+
+												</div>
+											</div>
+											
 										</div>
 									</div>
 								</div><!-- ends:data-block-big -->
@@ -357,7 +422,7 @@
 
 											<div class="row form-row"> <!-- starts:form-row -->
 												<div class="col-sm-4 col-xs-4 col-md-4">
-													<label>Rooms:</label>
+													<label>Details:</label>
 												</div>
 												<div class="col-sm-8 col-xs-8 col-md-8">
 													<textarea class="form-control"></textarea>

@@ -122,6 +122,11 @@ label{
   color: #ed6f58;
 }
 
+.sidebar-menus i{
+	padding-right: 5px;
+	font-size: 20px;
+}
+
 #breadcrums a {
 	color:#ed6f58;
 }
@@ -167,6 +172,7 @@ label{
 .data-block-big{
 	min-height:375px;
 }
+
 .data-block-head{
 	text-align: center;
 	font-size: 15px;
@@ -217,6 +223,7 @@ padding: 4px 20px;
 
 .data-block-footer{
 	padding-top: 25px;
+	text-transform: uppercase;
 }
 
 .guest-row{
@@ -249,3 +256,54 @@ padding: 4px 20px;
 	color:#444135;
 	text-decoration: none;
 }
+
+.room-content{
+	padding-top: 20px;
+}
+
+
+.room-no{
+	background-color: #ed6f58;
+	text-align: center;
+	padding: 6px;
+	border-radius: 5px;
+	color:#fff;
+	cursor:context-menu;
+}
+
+.room-box{
+	margin-bottom: 20px;
+}
+
+.available{
+
+}
+
+.booked{
+	background-color: #0E6EA3;
+}
+
+.occupied{
+	background-color: #444135;
+}
+
+.room-filter{
+	padding: 20px 0px;
+}
+
+.data-block-filter-head{
+	text-align: center;
+	font-size: 15px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #c7c7c7;
+	margin-bottom: 20px;
+}
+
+#room-filter-button{
+	padding: 15px;
+}
+
+.room-filter-btn{
+	margin-top:10px;
+}
+

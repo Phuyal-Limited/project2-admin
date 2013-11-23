@@ -23,9 +23,9 @@
 	</div>
 	<div class="sidebar-menus">
 		<ul>
-			<li class="current"><a href="">Dashboard</a></li>
-			<li><a href="">Add bookings</a></li>
-			<li><a href="">Rooms</a></li>
+			<li class="current"><a href=""><i class="fa fa-home"></i>Dashboard</a></li>
+			<li><a href=""><i class="fa fa-book"></i>Add bookings</a></li>
+			<li><a href=""><i class="fa fa-building"></i>Rooms</a></li>
 			<li><a href="">Bookings</a></li>
 			<li><a href="">Arrivals</a></li>
 			<li><a href="">Pick Up</a></li>

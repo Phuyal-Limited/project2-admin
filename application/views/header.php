@@ -8,10 +8,12 @@
 <head>
 	<title><?php echo $title;?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.theme.min.css'); ?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/layout.css'); ?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/font-awesome.min.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>"> <!-- bootstrap -->
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.theme.min.css'); ?>"> <!-- bootstrap -->
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/font-awesome.min.css'); ?>">  <!-- Font-awesome -->
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/demos.css'); ?>"> <!-- jquery ui -->
+	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"> <!-- jquery ui -->
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/layout.css'); ?>"> <!-- Custom css Nepal Inn -->
 	
 </head>
 <body>
