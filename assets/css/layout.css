@@ -172,6 +172,7 @@ label{
 .data-block-big{
 	min-height:375px;
 }
+
 .data-block-head{
 	text-align: center;
 	font-size: 15px;
@@ -260,14 +261,18 @@ padding: 4px 20px;
 	padding-top: 20px;
 }
 
-.room{
+
+.room-no{
 	background-color: #ed6f58;
 	text-align: center;
 	padding: 6px;
 	border-radius: 5px;
 	color:#fff;
-	margin-top: 15px;
 	cursor:context-menu;
+}
+
+.room-box{
+	margin-bottom: 20px;
 }
 
 .available{
@@ -281,3 +286,24 @@ padding: 4px 20px;
 .occupied{
 	background-color: #444135;
 }
+
+.room-filter{
+	padding: 20px 0px;
+}
+
+.data-block-filter-head{
+	text-align: center;
+	font-size: 15px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #c7c7c7;
+	margin-bottom: 20px;
+}
+
+#room-filter-button{
+	padding: 15px;
+}
+
+.room-filter-btn{
+	margin-top:10px;
+}
+

@@ -267,45 +267,69 @@
 											Rooms
 										</div>
 										<div class="data-block-content room-content">
-											<div class="row">
-												<div class="col-md-2 col-xs-3 col-sm-2">
-													<div class="room occupied">209</div>
+											<div class="row room-boxes"> <!-- starts:room row -->
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no booked">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2">
-													<div class="room occupied">209</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no occupied">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2">
-													<div class="room occupied">209</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no available">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2">
-													<div class="room occupied">209</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no occupied">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2">
-													<div class="room occupied">209</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no booked">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2">
-													<div class="room occupied">209</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no available">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2">
-													<div class="room occupied">209</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no occupied">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2">
-													<div class="room occupied">209</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no available">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2">
-													<div class="room occupied">209</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no occupied">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2">
-													<div class="room booked">209</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no booked">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2">
-													<div class="room occupied">209</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
+													<div class="room-no occupied">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2">
-													<div class="room available">209</div>
+												<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="Normal Room">
+													<div class="room-no available">209</div>
 												</div>
-												
+											</div><!-- starts:room row -->
+											<div class="row ">
+												<div class="room-filter">
+													<div class="col-md-12 col-sm-12 col-xs-12">
+														<div class="data-block-filter-head">
+															Filter Rooms
+														</div>
+													</div>
+													<div class="col-md-4 col-sm-4 col-xs-4">
+														<select class="form-control">
+															<option>Any Category</option>
+														</select>
+													</div>
+													<div class="col-md-4 col-sm-4 col-xs-4">
+														<input class="form-control" type="text" id="datepicker-from" placeholder="From">
+													</div>
+													<div class="col-md-4 col-sm-4 col-xs-4">
+														<input class="form-control" type="text" id="datepicker-to" placeholder="To">
+													</div>
+													<div id="room-filter-button">
+														<input class="btn btn-default inn-button room-filter-btn"  type="submit" value="Filter">
+													</div>
+
+												</div>
 											</div>
+											
 										</div>
 									</div>
 								</div><!-- ends:data-block-big -->
