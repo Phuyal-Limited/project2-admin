@@ -40,7 +40,7 @@ class Nepalinn extends CI_Controller {
 				'password' => $pass
 			);
 			
-			$output = $this->database->login($login_details);
+			$output = $this->dbase->login($login_details);
 			
 			
 			if($output == array()){
@@ -72,14 +72,14 @@ class Nepalinn extends CI_Controller {
 	{
 		$data['title'] = 'Edit | Home';
 		$hotel_id = $this->session->userdata['hotel_id'];
-		$data['hotel_details'] = $this->database->get_Hotel_Details($hotel_id);
-		$data['hotel_facilities'] = $this->database->get_hotel_facilities($hotel_id);
+		$data['hotel_details'] = $this->dbase->get_Hotel_Details($hotel_id);
+		$data['hotel_facilities'] = $this->dbase->get_hotel_facilities($hotel_id);
 		
 		$default_image = $data['hotel_details'][0]->default_imgid;
 		$other_image = $data['hotel_details'][0]->image_id;
 		
-		$data['default_image'] = $this->database->get_Image_Details($default_image);
-		$data['other_image'] = $this->database->get_Image_Details($other_image);
+		$data['default_image'] = $this->dbase->get_Image_Details($default_image);
+		$data['other_image'] = $this->dbase->get_Image_Details($other_image);
 
 		
 		$this->load->view('header', $data);
