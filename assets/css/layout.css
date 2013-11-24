@@ -192,6 +192,22 @@ label{
 	padding-top: 8px;
 }
 
+.message-show{
+	background-color: #F5F5F5;
+	border-radius: 10px;
+	margin-top: 5px;
+	padding: 5px;
+}
+
+.message-show .failure{
+	color: red;
+	font-weight: bold;
+}
+
+.message-show .success{
+	font-weight: bold;
+}
+
 .form-row{
 	margin-top: 20px;
 }

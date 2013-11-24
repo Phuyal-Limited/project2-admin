@@ -21,43 +21,56 @@
 										Change Password
 									</div>
 									<div class="clear"></div>
-									<div class="form-content">
-										<div class="row form-row"> <!-- starts:form-row -->
-											<div class="col-sm-4 col-xs-5 col-md-4">
-												<label>Old Password:</label>
-											</div>
-											<div class="col-sm-8 col-xs-7 col-md-5">
-												<input class="form-control" type="text" placeholder="Old Password">
+									<?php
+										if(isset($success)){
+											echo "<div class='message-show'>";
+											if($success){
+												echo "<div class='success'>$message</div>";
+											}else{
+												echo "<div class='failure'>$message</div>";
+											}
+											echo "</div>";
+										}
+									?>
+									<form name='changepsw' method='post' action=''>
+										<div class="form-content">
+											<div class="row form-row"> <!-- starts:form-row -->
+												<div class="col-sm-4 col-xs-5 col-md-4">
+													<label>Old Password:</label>
+												</div>
+												<div class="col-sm-8 col-xs-7 col-md-5">
+													<input class="form-control" name="old" type="password" placeholder="Old Password" required>
 
-											</div>
-										</div> <!-- ends:form-row -->
+												</div>
+											</div> <!-- ends:form-row -->
 
-										<div class="row form-row"> <!-- starts:form-row -->
-											<div class="col-sm-4 col-xs-5 col-md-4">
-												<label>New Password:</label>
-											</div>
-											<div class="col-sm-8 col-xs-7 col-md-5">
-												<input class="form-control" type="text" placeholder="New Password">
+											<div class="row form-row"> <!-- starts:form-row -->
+												<div class="col-sm-4 col-xs-5 col-md-4">
+													<label>New Password:</label>
+												</div>
+												<div class="col-sm-8 col-xs-7 col-md-5">
+													<input class="form-control" name="new" type="password" placeholder="New Password" required>
 
-											</div>
-										</div> <!-- ends:form-row -->
+												</div>
+											</div> <!-- ends:form-row -->
 
-										<div class="row form-row"> <!-- starts:form-row -->
-											<div class="col-sm-4 col-xs-5 col-md-4">
-												<label>Confirm Password:</label>
-											</div>
-											<div class="col-sm-8 col-xs-7 col-md-5">
-												<input class="form-control" type="text" placeholder="Confirm Password">
+											<div class="row form-row"> <!-- starts:form-row -->
+												<div class="col-sm-4 col-xs-5 col-md-4">
+													<label>Confirm Password:</label>
+												</div>
+												<div class="col-sm-8 col-xs-7 col-md-5">
+													<input class="form-control" name="renew" type="password" placeholder="Confirm Password" required>
 
-											</div>
-										</div> <!-- ends:form-row -->
-										<div class="clear"></div>
-										<div class="row">
-											<div class="col-md-12">
-												<input type="submit" value="Change Password" class="btn btn-default">
+												</div>
+											</div> <!-- ends:form-row -->
+											<div class="clear"></div>
+											<div class="row">
+												<div class="col-md-12">
+													<input type="submit" name="pswChng" value="Change Password" class="btn btn-default">
+												</div>
 											</div>
 										</div>
-									</div>
+									</form>
 									<div class="clear"></div>
 								</div>
 							</div>

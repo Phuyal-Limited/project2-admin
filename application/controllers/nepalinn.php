@@ -36,6 +36,33 @@ class Nepalinn extends CI_Controller {
 
 	public function change_password()
 	{
+		//Check if the form has been submitted.
+		if($this->input->post('pswChng')){
+			//First check if the current password is correct
+			$login_details=array(
+				'username' => $this->session->userdata['username'],
+				'password' => sha1($this->input->post('old'))
+			);
+			$result=$this->dbase->login($login_details);
+			if($result == array()){
+				$data['success']=0;
+				$data['message']="Invalid Password. Please enter correct password.";
+			}
+			else
+			{
+				//Here old password entered is correct now
+				$new=$this->input->post("new");
+				$new=sha1($new);
+				$id= $result[0]->user_id;
+				$credentials=array(
+					'password' => $new
+				);
+				$this->rooms->change_password($id,$credentials);
+				$data["success"] = 1;
+				$data['message']="Password Changed successfully.";
+			}
+		}
+		//Load the change password form
 		$data['title'] = 'Nepalinn | Change Password';
 		$this->load->view('header', $data);
 		$this->load->view('change_password');
@@ -49,10 +76,10 @@ class Nepalinn extends CI_Controller {
 		if (!isset($_POST['name'])){
 			redirect('login');
 		}else{
-			$pass = $_POST['pass'];
+			$pass = $this->input->post('pass');
 			$pass = sha1($pass);
 			$login_details = array(
-				'username' => $_POST['name'],
+				'username' => $this->input->post('name'),
 				'password' => $pass
 			);
 			
@@ -80,7 +107,6 @@ class Nepalinn extends CI_Controller {
 
 	public function logout(){
 		$this->session->sess_destroy();
-
 		$this->index();
 	}
 
