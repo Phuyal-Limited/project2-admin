@@ -15,7 +15,7 @@
 					
 					<!--form div starts here-->
 					<div>
-						<form action="edit_update" method="post">
+						<form action="edit_update" method="post" enctype="multipart/form-data">
 							<fieldset>
 								<label>Hotel Name</label><br />
 								<?php echo $hotel_details[0]->name;?>
@@ -50,7 +50,8 @@
 							</fieldset><br />
 							<fieldset>
 								<label>Default Image</label><br />
-								<input type="file" name="default_image" id="default_image" onChange="readURL(this);" />
+								<input type="file" name="default_image" id="default_image" disabled="disabled" onChange="readURL(this);" />
+								
 								<?php
 									if($hotel_details[0]->default_imgid==0){
 								?>
@@ -66,7 +67,7 @@
 							</fieldset><br />
 							<fieldset>
 								<label>Other Images</label><br />
-								<input type="file" name="images" id="images" />
+								<input type="file" name="images" id="images" disabled="disabled" />
 								<?php
 									if($hotel_details[0]->default_imgid==''){
 								?>
@@ -95,15 +96,16 @@
 									$count = 0;
 									for($i=0;$i<$row;$i++){
 										while($j<$size){
-											$j++;
+											
 
 											$checked = '';
 											if($hotel_facilities[$j][2]=='1'){
 												$checked='checked';
 											}
 								?>
-								 			<input type="checkbox" name="<?php echo $j;?>" value="<?php echo $hotel_facilities[$j][0]; ?>" <?php echo $checked; ?> /><label><?php echo $hotel_facilities[$j][1];?></label>&nbsp;&nbsp;
+								 			<input type="checkbox" name="check[]" value="<?php echo $hotel_facilities[$j][0]; ?>" <?php echo $checked; ?> /><label><?php echo $hotel_facilities[$j][1];?></label>&nbsp;&nbsp;
 								<?php
+											$j++;
 											$count++;
 											if($count==6){
 												$count = 0;

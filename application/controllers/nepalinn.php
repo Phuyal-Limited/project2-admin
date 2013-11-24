@@ -81,7 +81,7 @@ class Nepalinn extends CI_Controller {
 		$data['title'] = 'Edit | Home';
 		$hotel_id = $this->session->userdata['hotel_id'];
 		$data['hotel_details'] = $this->booking->get_Hotel_Details($hotel_id);
-		$data['hotel_facilities'] = $this->dbase->get_hotel_facilities($hotel_id);
+		$data['hotel_facilities'] = $this->booking->get_hotel_facilities($hotel_id);
 		
 		$default_image = $data['hotel_details'][0]->default_imgid;
 		$other_image = $data['hotel_details'][0]->image_id;
@@ -95,49 +95,116 @@ class Nepalinn extends CI_Controller {
 		$this->load->view('footer');
 	}
 
-	// public function edit_update(){
-	// 	if($this->input->post('update')==false){
-	// 		redirect('home');
-	// 	}else{
-	// 		$hotel_id = $this->session->userdata['hotel_id'];
-	// 		$hotel_details = $this->dbase->get_Hotel_Details($hotel_id);
-	// 		$default_image = $hotel_details[0]->default_imgid;
+	public function edit_update(){
+		if(!isset($_POST['update'])){
+			redirect('home');
+		}else{
+			
+			$hotel_id = $this->session->userdata['hotel_id'];
+			 //$hotel_details = $this->booking->get_Hotel_Details($hotel_id);
 
-	// 		//image upload to the folder
-	// 		$this->load->library('upload');
+			 //$default_image = $hotel_details[0]->default_imgid;
+			// $last_id = $this->dbase->last_image();
+			// if($default_image==0){
+			// 	$default_image = $last_id;
+			// }
+			
+			
 
-	//         $config['upload_path'] = '/assets/images/hotel_image/';
-	//         $config['allowed_types'] = 'jpg|png|jpeg|JPG|PNG|JPEG';
+			// //image upload to the folder
+			
+
+			// $this->load->library('upload');
+
+	  //       $config['upload_path'] = './assets/images/hotel_image/';
+	  //       $config['allowed_types'] = 'jpg|png|jpeg|JPG|PNG|JPEG';
 	        
-	//         $config['overwrite'] = TRUE;
+	  //       $config['overwrite'] = TRUE;
 
-	//         $this->upload->initialize($config);
+	        
+	  //       $details = array();
+	  //       $error = array();
+	  //       $upload_error = array();
+	  //       $i++;
+	  //       foreach($_FILES as $field => $file)
+	  //       {
+	  //       	if($field=='default_image'){
+	  //       		$config['file_name'] = $default_image;
 
-	//         foreach($_FILES as $field => $file)
-	//         {
-	//             // No problems with the file
-	//             if($file['error'] == 0)
-	//             {
-	//                 // So lets upload
-	//                 if ($this->upload->do_upload($field))
-	//                 {
-	//                     $data = $this->upload->data();
-	//                     array_push($details, $data);
-	//                 }
-	//                 else
-	//                 {
-	//                     $errors = $this->upload->display_errors();
-	//                     array_push($upload_error, $error);
-	//                 }
-	//             }
-	//             else{
-	// 	    		array_push($error, 'Error');
-	//             }
-	//         }
-	//         print_r($details);
+	  //       	}else{
+	  //       		$config['file_name'] = $last_id;
+	  //       	}
+	  //           $this->upload->initialize($config);
+	  //           // No problems with the file
+	  //           if($file['error'] == 0)
+	  //           {
+	  //               // So lets upload
+	  //               if ($this->upload->do_upload($field))
+	  //               {
 
- //    	}
-	// }
+	  //                   $data = $this->upload->data();
+	  //                   //default image update
+	  //                   if($field=='default_image'){
+	  //                   	$name=$data['file_name'];
+	  //                   	$image_details = array(
+	  //                   		'name' => $name,
+	  //                   		'path' => 'http://admin.nepalinn.com/assets/images/hotel_image/'.$name,
+	  //                   		'alt' => $name
+	  //                   	);
+
+	  //                   	$this->dbase->image_add($default_image);
+	  //                   }else{
+	  //                   	$name = $this->input->post('image_name');
+	  //                   	if($name==''){
+	  //                   		$name=$data['file_name'];
+	  //                   	}
+
+	  //                   	$image_details = array(
+	  //                   		'name' => $name,
+	  //                   		'path' => 'http://admin.nepalinn.com/assets/images/hotel_image/'.$name,
+	  //                   		'alt' => $name
+	  //                   	);
+	  //                   	array_push($details, $data);
+	  //               	}
+	  //               }else
+	  //               {
+	  //                   $errors = $this->upload->display_errors();print_r($errors);
+	  //                   array_push($upload_error, $error);
+	  //               }
+	  //           }
+	  //           else{
+		 //    		array_push($error, 'Error');
+	  //           }
+	  //       }
+	        
+			//update hotel facilities
+			$hotel_facilities = array();
+			foreach ($_POST['check'] as $key => $value) {
+				$hotel_facility['hotel_id'] = $hotel_id;
+				$hotel_facility['facility_id'] = $value;
+				array_push($hotel_facilities, $hotel_facility);
+			}
+
+			$this->dbase->hotel_facilities_update($hotel_facilities, $hotel_id);
+
+	        //update hotel details
+	        $update_hotel = array(
+	        	'address' => $this->input->post('address'),
+	        	'city' => $this->input->post('city'),
+	        	'url' => $this->input->post('url'),
+	        	'google_map_url' => $this->input->post('google_url'),
+	        	'phone1' => $this->input->post('phone1'),
+	        	'phone2' => $this->input->post('phone2'),
+	        	'email' => $this->input->post('email'),
+	        	'description' => $this->input->post('description')
+	        );
+
+	        $this->dbase->hotel_Update($update_hotel, $hotel_id);
+
+	        redirect('home');
+
+    	}
+	}
 
 }
 
