@@ -23,81 +23,25 @@
 									<div>
 										<div class="clear"></div>
 										<div class="row room-boxes"> <!-- starts:room row -->
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no booked">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no occupied">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no available">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no occupied">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no booked">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no occupied">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box" >
-													<div class="room-no available">209</div>
-												</div>
-											</div><!-- starts:room row -->
-											<div class="row">
-												<div class="col-md-12">
-													<div class="room-category-add-head">
-														Add a Delux room
-													</div>
-												</div>
-												<div class="clear"></div>
-												<div clas="col-md-12">
-													<div class="col-md-3 col-sm-3 col-xs-3">
-														<label>Room No:</label>
-													</div>
-													<div class="col-md-4 col-sm-4 col-xs-4">
-														<input type="text" class="form-control">
-													</div>
-													<div class="col-md-5 col-sm-5 col-xs-5">
-														<input type="submit" value="Add" class="btn btn-default">
-													</div>
-												</div>
-											</div>
-											<div class="clear"></div>
-									</div>
-								</div>
-							</div>
-						</div> <!-- starts:room-wrap -->
-
-						<div class="col-md-6 room-wrap"> <!-- starts:room-wrap -->
-							<div class="room-category">
-								<div class="col-md-12">
-									<div class="room-category-head">
-										Delux Room <a href="" class="room-category-edit">Edit</a>
-									</div>
-									<div>
-										<div class="clear"></div>
-										<div class="row room-boxes"> <!-- starts:room row -->
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
-													<div class="room-no booked">209</div>
-												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
-													<div class="room-no occupied">209</div>
-												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
-													<div class="room-no available">209</div>
-												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
-													<div class="room-no occupied">209</div>
-												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
-													<div class="room-no booked">209</div>
-												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
-													<div class="room-no occupied">209</div>
-												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box" >
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box" >
 													<div class="room-no available">209</div>
 												</div>
 											</div><!-- starts:room row -->
@@ -135,25 +79,25 @@
 									<div>
 										<div class="clear"></div>
 										<div class="row room-boxes"> <!-- starts:room row -->
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no booked">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no occupied">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no available">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no occupied">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no booked">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no occupied">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box" >
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box" >
 													<div class="room-no available">209</div>
 												</div>
 											</div><!-- starts:room row -->
@@ -191,25 +135,81 @@
 									<div>
 										<div class="clear"></div>
 										<div class="row room-boxes"> <!-- starts:room row -->
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no booked">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no occupied">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no available">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no occupied">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no booked">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box">
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
 													<div class="room-no occupied">209</div>
 												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box" >
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box" >
+													<div class="room-no available">209</div>
+												</div>
+											</div><!-- starts:room row -->
+											<div class="row">
+												<div class="col-md-12">
+													<div class="room-category-add-head">
+														Add a Delux room
+													</div>
+												</div>
+												<div class="clear"></div>
+												<div clas="col-md-12">
+													<div class="col-md-3 col-sm-3 col-xs-3">
+														<label>Room No:</label>
+													</div>
+													<div class="col-md-4 col-sm-4 col-xs-4">
+														<input type="text" class="form-control">
+													</div>
+													<div class="col-md-5 col-sm-5 col-xs-5">
+														<input type="submit" value="Add" class="btn btn-default">
+													</div>
+												</div>
+											</div>
+											<div class="clear"></div>
+									</div>
+								</div>
+							</div>
+						</div> <!-- starts:room-wrap -->
+
+						<div class="col-md-6 room-wrap"> <!-- starts:room-wrap -->
+							<div class="room-category">
+								<div class="col-md-12">
+									<div class="room-category-head">
+										Delux Room <a href="" class="room-category-edit">Edit</a>
+									</div>
+									<div>
+										<div class="clear"></div>
+										<div class="row room-boxes"> <!-- starts:room row -->
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
+													<div class="room-no booked">209</div>
+												</div>
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
+													<div class="room-no occupied">209</div>
+												</div>
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
+													<div class="room-no available">209</div>
+												</div>
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
+													<div class="room-no occupied">209</div>
+												</div>
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
+													<div class="room-no booked">209</div>
+												</div>
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box">
+													<div class="room-no occupied">209</div>
+												</div>
+												<div class="col-md-3 col-xs-3 col-sm-2 room-box" >
 													<div class="room-no available">209</div>
 												</div>
 											</div><!-- starts:room row -->
