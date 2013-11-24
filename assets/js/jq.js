@@ -56,3 +56,22 @@ function readURL(input) {
 		reader.readAsDataURL(input.files[0]);
 	}
 }
+
+function validate(){
+	var newpass = $("#new").val();
+	var repass = $("#renew").val();
+	if(newpass.length<5){
+		$("#validate-msg").html('Password must be of minimum length 5 (New Password)');
+		return false;
+	}
+
+	if(repass.length<5){
+		$("#validate-msg").html('Password must be of minimum length 5 (Confirm Password)');
+		return false;
+	}
+
+	if(newpass!=repass){
+		$("#validate-msg").html('Password Not Match');
+		return false;
+	}
+}

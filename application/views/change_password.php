@@ -32,7 +32,7 @@
 											echo "</div>";
 										}
 									?>
-									<form name='changepsw' method='post' action=''>
+									<form name='changepsw' method='post' action='' onsubmit="validate();" >
 										<div class="form-content">
 											<div class="row form-row"> <!-- starts:form-row -->
 												<div class="col-sm-4 col-xs-5 col-md-4">
@@ -49,7 +49,7 @@
 													<label>New Password:</label>
 												</div>
 												<div class="col-sm-8 col-xs-7 col-md-5">
-													<input class="form-control" name="new" type="password" placeholder="New Password" required>
+													<input class="form-control" name="new" id="new" type="password" placeholder="New Password" required>
 
 												</div>
 											</div> <!-- ends:form-row -->
@@ -59,13 +59,14 @@
 													<label>Confirm Password:</label>
 												</div>
 												<div class="col-sm-8 col-xs-7 col-md-5">
-													<input class="form-control" name="renew" type="password" placeholder="Confirm Password" required>
+													<input class="form-control" name="renew" id="renew" type="password" placeholder="Confirm Password" required>
 
 												</div>
 											</div> <!-- ends:form-row -->
 											<div class="clear"></div>
 											<div class="row">
 												<div class="col-md-12">
+												<div id="validate-msg"></div><br/>
 													<input type="submit" name="pswChng" value="Change Password" class="btn btn-default">
 												</div>
 											</div>
