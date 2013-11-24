@@ -1,19 +1,12 @@
 <?php
 
-class Database extends CI_Model{
+class Dbase extends CI_Model{
 
 	public function login($data){
 		$this->db->where($data);
 		$login_result = $this->db->get('user');
 		return $login_result->result();
 
-	}
-
-	//function to get hotel details
-	public function get_Hotel_Details($hotelID){
-		$this->db->where("hotel_id", $hotelID);
-		$hotel_details = $this->db->get('hotel');
-		return $hotel_details->result();
 	}
 
 	/*//To display in Today's Guest Pickup

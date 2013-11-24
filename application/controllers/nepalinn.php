@@ -72,7 +72,7 @@ class Nepalinn extends CI_Controller {
 	{
 		$data['title'] = 'Edit | Home';
 		$hotel_id = $this->session->userdata['hotel_id'];
-		$data['hotel_details'] = $this->dbase->get_Hotel_Details($hotel_id);
+		$data['hotel_details'] = $this->booking->get_Hotel_Details($hotel_id);
 		$data['hotel_facilities'] = $this->dbase->get_hotel_facilities($hotel_id);
 		
 		$default_image = $data['hotel_details'][0]->default_imgid;
@@ -86,6 +86,50 @@ class Nepalinn extends CI_Controller {
 		$this->load->view('edit');
 		$this->load->view('footer');
 	}
+
+	// public function edit_update(){
+	// 	if($this->input->post('update')==false){
+	// 		redirect('home');
+	// 	}else{
+	// 		$hotel_id = $this->session->userdata['hotel_id'];
+	// 		$hotel_details = $this->dbase->get_Hotel_Details($hotel_id);
+	// 		$default_image = $hotel_details[0]->default_imgid;
+
+	// 		//image upload to the folder
+	// 		$this->load->library('upload');
+
+	//         $config['upload_path'] = '/assets/images/hotel_image/';
+	//         $config['allowed_types'] = 'jpg|png|jpeg|JPG|PNG|JPEG';
+	        
+	//         $config['overwrite'] = TRUE;
+
+	//         $this->upload->initialize($config);
+
+	//         foreach($_FILES as $field => $file)
+	//         {
+	//             // No problems with the file
+	//             if($file['error'] == 0)
+	//             {
+	//                 // So lets upload
+	//                 if ($this->upload->do_upload($field))
+	//                 {
+	//                     $data = $this->upload->data();
+	//                     array_push($details, $data);
+	//                 }
+	//                 else
+	//                 {
+	//                     $errors = $this->upload->display_errors();
+	//                     array_push($upload_error, $error);
+	//                 }
+	//             }
+	//             else{
+	// 	    		array_push($error, 'Error');
+	//             }
+	//         }
+	//         print_r($details);
+
+ //    	}
+	// }
 
 }
 
