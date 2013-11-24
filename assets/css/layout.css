@@ -252,6 +252,18 @@ padding: 4px 20px;
 	margin-top: 30px;
 }
 
+.head-head{
+	text-align: center;
+	padding: 10px;
+	font-size: 20px;
+	border-bottom: 1px solid #c7c7c7;
+}
+
+.wrap-wrap{
+	background-color: #fff;
+	border:1px solid #c7c7c7;
+}
+
 .footer-dash a{
 	color:#ed6f58;
 }
@@ -267,7 +279,7 @@ padding: 4px 20px;
 
 
 .room-no{
-	background-color: #ed6f58;
+	background-color: #444135;
 	text-align: center;
 	padding: 6px;
 	border-radius: 5px;
@@ -282,7 +294,7 @@ padding: 4px 20px;
 
 
 .available{
-	background-color: #ed6f58;
+	background-color: #444135;
 }
 
 .booked{
@@ -290,7 +302,7 @@ padding: 4px 20px;
 }
 
 .occupied{
-	background-color: #444135;
+	background-color: #ed6f58;
 }
 
 .room-filter{

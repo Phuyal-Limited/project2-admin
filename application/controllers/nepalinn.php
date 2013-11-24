@@ -34,6 +34,14 @@ class Nepalinn extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	public function change_password()
+	{
+		$data['title'] = 'Nepalinn | Change Password';
+		$this->load->view('header', $data);
+		$this->load->view('change_password');
+		$this->load->view('footer');
+	}
+
 	//login function
 	public function login_entry()
 	{

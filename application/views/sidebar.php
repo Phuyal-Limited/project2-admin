@@ -28,7 +28,7 @@
 			<li><a href="room_setting"><i class="fa fa-building"></i>Room Setting</a></li>
 			<li><a href="">Bookings</a></li>
 			<li><a href="">Arrivals</a></li>
-			<li><a href="">Pick Up</a></li>
+			<li><a href="change_password">Change Password</a></li>
 			<li><a href="">Lorem Ipsum</a></li>
 		</ul>
 	</div>
