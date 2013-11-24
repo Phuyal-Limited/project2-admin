@@ -188,6 +188,10 @@ label{
 	padding: 30px;
 }
 
+.form-content label{
+	padding-top: 8px;
+}
+
 .form-row{
 	margin-top: 20px;
 }
@@ -275,8 +279,10 @@ padding: 4px 20px;
 	margin-bottom: 20px;
 }
 
-.available{
 
+
+.available{
+	background-color: #ed6f58;
 }
 
 .booked{
@@ -307,3 +313,48 @@ padding: 4px 20px;
 	margin-top:10px;
 }
 
+.room-category{
+	background-color: #fff;
+	border:1px solid #c7c7c7;
+	min-height:150px;
+}
+
+.room-wrap{
+	padding-bottom:30px;
+}
+
+.new-category-head,
+.room-category-head{
+	text-align: center;
+	padding: 10px;
+	font-size: 20px;
+	border-bottom: 1px solid #c7c7c7;
+}
+
+.room-category-edit{
+	float:right;
+	font-size: 15px;
+	padding-top: 4px;
+}
+
+.room-category-add-head{
+	text-align: center;
+	padding: 5px;
+	font-size: 13px;
+	border-bottom: 1px solid #c7c7c7;
+}
+
+.room-category label{
+	padding-top:10px;
+}
+
+
+.room-add{
+	background-color: #fff;
+	border: 1px solid #c7c7c7;
+	min-height:200px;
+}
+
+.add-room-category-form{
+	padding: 30px 50px;
+}

@@ -26,6 +26,14 @@ class Nepalinn extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	public function room_setting()
+	{
+		$data['title'] = 'Nepalinn | Room Setting';
+		$this->load->view('header', $data);
+		$this->load->view('room_setting');
+		$this->load->view('footer');
+	}
+
 	//login function
 	public function login_entry()
 	{

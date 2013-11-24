@@ -431,7 +431,7 @@
 											</div> <!-- ends:form-row -->
 
 											<div class="inn-buttons" id="form-buttons">
-												<p><input class="btn btn-default inn-button" type="submit" value="Book"></p>
+												<p><input class="btn btn-default inn-button" type="submit" value="Check In"></p>
 											</div>
 
 										</div> <!-- ends:data-block-contents -->
@@ -480,7 +480,7 @@
 											
 
 											<div class="inn-buttons" id="form-buttons">
-												<p><input class="btn btn-default inn-button" type="submit" value="Book"></p>
+												<p><input class="btn btn-default inn-button" type="submit" value="Check Out"></p>
 											</div>
 
 										</div> <!-- ends:data-block-contents -->
