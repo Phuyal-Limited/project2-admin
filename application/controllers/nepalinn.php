@@ -135,12 +135,14 @@ class Nepalinn extends CI_Controller {
 		}else{
 			
 			$hotel_id = $this->session->userdata['hotel_id'];
-			 //$hotel_details = $this->booking->get_Hotel_Details($hotel_id);
+			// $hotel_details = $this->booking->get_Hotel_Details($hotel_id);
 
-			 //$default_image = $hotel_details[0]->default_imgid;
+			// $hotel_name = $hotel_details[0]->name;
+			// $default_image = $hotel_details[0]->default_imgid;
 			// $last_id = $this->dbase->last_image();
 			// if($default_image==0){
 			// 	$default_image = $last_id;
+			// 	$last_id = $last_id + 1;
 			// }
 			
 			
@@ -150,40 +152,36 @@ class Nepalinn extends CI_Controller {
 
 			// $this->load->library('upload');
 
-	  //       $config['upload_path'] = './assets/images/hotel_image/';
-	  //       $config['allowed_types'] = 'jpg|png|jpeg|JPG|PNG|JPEG';
+	  //      $config['upload_path'] = './assets/images/hotel_image/';
+	  //      $config['allowed_types'] = 'jpg|png|jpeg|JPG|PNG|JPEG';
+	       
+	  //      $config['overwrite'] = TRUE;
+
+	  //      $config['file_name'] = $hotel_name;
+	  //      $this->upload->initialize($config);
 	        
-	  //       $config['overwrite'] = TRUE;
+	  //      $details = array();
+	  //      $error = array();
+	  //      $upload_error = array();
+	  //      $i++;
+	  //      foreach($_FILES as $field => $file)
+	  //      {
+	       	
+	  //          // No problems with the file
+	  //          if($file['error'] == 0)
+	  //          {
+	  //              // So lets upload
+	  //              if ($this->upload->do_upload($field))
+	  //              {
 
-	        
-	  //       $details = array();
-	  //       $error = array();
-	  //       $upload_error = array();
-	  //       $i++;
-	  //       foreach($_FILES as $field => $file)
-	  //       {
-	  //       	if($field=='default_image'){
-	  //       		$config['file_name'] = $default_image;
-
-	  //       	}else{
-	  //       		$config['file_name'] = $last_id;
-	  //       	}
-	  //           $this->upload->initialize($config);
-	  //           // No problems with the file
-	  //           if($file['error'] == 0)
-	  //           {
-	  //               // So lets upload
-	  //               if ($this->upload->do_upload($field))
-	  //               {
-
-	  //                   $data = $this->upload->data();
-	  //                   //default image update
-	  //                   if($field=='default_image'){
-	  //                   	$name=$data['file_name'];
-	  //                   	$image_details = array(
-	  //                   		'name' => $name,
+	  //                  $data = $this->upload->data();
+	  //                 //default image update
+	  //                  if($field=='default_image'){
+	  //               		$name=$data['file_name'];
+	  //                  		$image_details = array(
+	  //                  		'name' => $name,
 	  //                   		'path' => 'http://admin.nepalinn.com/assets/images/hotel_image/'.$name,
-	  //                   		'alt' => $name
+	  //                   		'alt' => $hotel_name
 	  //                   	);
 
 	  //                   	$this->dbase->image_add($default_image);
@@ -238,6 +236,13 @@ class Nepalinn extends CI_Controller {
 	        redirect('home');
 
     	}
+	}
+
+	//autoload pickup details
+	public function pickup(){
+		$hotel_id = $this->session->userdata['hotel_id'];
+		$pickup_details = $this->booking->get_Pickup_Details(1);
+		print_r(json_encode($pickup_details));
 	}
 
 }

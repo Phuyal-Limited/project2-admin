@@ -68,41 +68,10 @@
 										<div class="data-block-head">
 											Today's Guest Pickup
 										</div>
-										<div class="data-block-content"> <!-- starts: data-block-content -->
 
-											<div class="guest-row"> <!-- starts:guest-row -->
-												<div class="row"> 
-												<div class="col-xs-12 col-sm-12 col-md-12 data-block-guest-name">Sudip Dawadi</div>
-												<div class="col-xs-12 col-sm-12 col-md-12">From:<em>Lakeside</em></div> 
-												<div class="col-xs-12 col-sm-12 col-md-12 pickup-time"><span>12:40:00</span><em> 30 mins left</em></div>
-											</div> 
-											</div> <!-- ends:guest-row -->
-
-											<div class="guest-row"> <!-- starts:guest-row -->
-												<div class="row"> 
-												<div class="col-xs-12 col-sm-12 col-md-12 data-block-guest-name">Mahesh Thapa</div>
-												<div class="col-xs-12 col-sm-12 col-md-12">From: <em>Amarsingh</em></div> 
-												<div class="col-xs-12 col-sm-12 col-md-12 pickup-time"><span>11:05:00</span><em> 1 hour 30 mins left</em></div>
-											</div> 
-											</div> <!-- ends:guest-row -->
-
-											<div class="guest-row"> <!-- starts:guest-row -->
-												<div class="row"> 
-												<div class="col-xs-12 col-sm-12 col-md-12 data-block-guest-name">Niranjan Udas</div>
-												<div class="col-xs-12 col-sm-12 col-md-12">From: <em>Pokhara</em></div> 
-												<div class="col-xs-12 col-sm-12 col-md-12 pickup-time"><span>09:45:00</span><em> 1 day left</em></div>
-											</div> 
-											</div> <!-- ends:guest-row -->
-
-											<div class="guest-row"> <!-- starts:guest-row -->
-												<div class="row"> 
-												<div class="col-xs-12 col-sm-12 col-md-12 data-block-guest-name">Bikram Adhikari</div>
-												<div class="col-xs-12 col-sm-12 col-md-12"> From: <em>Lamachaur</em></div>
-												<div class="col-xs-12 col-sm-12 col-md-12 pickup-time"><span>00:00:00</span><em> 1 week left</em></div>
-
-											</div> 
-											</div> <!-- ends:guest-row -->
+										<div class="data-block-content" id="pickup_show"> <!-- starts: data-block-content -->
 										</div> <!-- ends: data-block-content -->
+										
 									</div>
 								</div>  <!-- ends:data block-small -->
 

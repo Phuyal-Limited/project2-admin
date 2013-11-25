@@ -41,6 +41,8 @@
 $route['default_controller'] = "nepalinn";
 $route['404_override'] = '';
 $route['(:any)'] = 'nepalinn/$1';
+$route['(:any)'] = 'main/$1';
+$route['(:any)'] = 'hotel/$1';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
