@@ -32,7 +32,7 @@
 											echo "</div>";
 										}
 									?>
-									<form name='changepsw' method='post' action='' onsubmit="validate();" >
+									<form name='changepsw' method='post' action='' onsubmit="return validate();" >
 										<div class="form-content">
 											<div class="row form-row"> <!-- starts:form-row -->
 												<div class="col-sm-4 col-xs-5 col-md-4">
