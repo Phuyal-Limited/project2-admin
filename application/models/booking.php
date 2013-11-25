@@ -64,7 +64,7 @@ class Booking extends CI_Model{
 		$this->db->where('hotel_id', $hotelID);
 		$this->db->where('checkin_date', $dateToday);
 		$this->db->where('pickup_req', '1');
-		$this->db->where('status', '1');
+		$this->db->where('status', '0');
 		$id = $this->db->get('booking');
 		$details = array();
 		$resultDetails = array();
@@ -73,12 +73,71 @@ class Booking extends CI_Model{
 			$this->db->where('guest_id', $row->guest_id);
 			$guestName = $this->db->get('guest');
 			$guestName = $guestName->result();
-			$details[0] = $guestName[0]->name;
-			$details[1] = $row->pickup_place;
-			$details[2] = $row->pickup_time;
+			$details['name'] = $guestName[0]->name;
+			$details['pickup_place'] = $row->pickup_place;
+			$details['pickup_time'] = $row->pickup_time;
 			array_push($resultDetails, $details);
 		}
 		return $resultDetails;
+	}
+
+	public function get_Guest_Name($guestID){
+		$this->db->select('name');
+		$this->db->where('guest_id', $guestID);
+		$guestName = $this->db->get('guest');
+		$guestName = $guestName->result();
+		$guestName = $guestName[0]->name;
+
+		return $guestName;
+	}
+
+	public function get_Room_Number($bookingID){
+		$this->db->select('room_id');
+		$this->db->where('booking_id', $bookingID);
+		$roomID = $this->db->get('booking_room');
+		$bookedRooms = array();
+		foreach ($roomID->result() as $row) {
+			$this->db->select('room_no');
+			$this->db->where('room_id', $row->room_id);
+			$roomNumber = $this->db->get('room');
+			$roomNumber = $roomNumber->result();
+			$roomNumber = $roomNumber[0]->room_no;
+			array_push($bookedRooms, $roomNumber);
+		}
+
+		return $bookedRooms;
+	}
+
+	public function get_Booking_Details($hotelID, $flag){
+		$this->db->select('booking_id, guest_id, checkin_date');
+		$this->db->select('checkout_date');
+		$this->db->where('hotel_id', $hotelID);
+		if ($flag == '0') {
+			$this->db->order_by('booking_id', 'desc');
+			$this->db->limit(5);
+		}
+		else if ($flag == '1') {
+			$dateToday = date('Y-m-d');
+			//$this->db->where('checkin_date', $dateToday);
+			//$this->db->where('status', '0');
+		}
+		else{
+			echo "flag set to invalid integer or the flag is not set at all.";
+		}
+		$guestRaw = $this->db->get('booking');
+		$bookingDetails = array();
+		$allDetails = array();
+		foreach ($guestRaw->result() as $rowRaw) {
+			$bookingDetails['booking_id'] = $rowRaw->booking_id;
+			$bookingDetails['guest_id'] = $rowRaw->guest_id;
+			$bookingDetails['name'] = $this->get_Guest_Name($rowRaw->guest_id);
+			$bookingDetails['checkin_date'] = $rowRaw->checkin_date;
+			$bookingDetails['checkout_date'] = $rowRaw->checkout_date;
+			$bookingDetails['room_numbers'] = $this->get_Room_Number($rowRaw->booking_id);
+			array_push($allDetails, $bookingDetails);
+		}
+
+		return $allDetails;
 	}
 }
 ?>
