@@ -81,6 +81,9 @@ class Booking extends CI_Model{
 		return $resultDetails;
 	}
 
+	/*
+	provided guest id, this function returns the guest name associated with the guest id.
+	*/
 	public function get_Guest_Name($guestID){
 		$this->db->select('name');
 		$this->db->where('guest_id', $guestID);
@@ -91,6 +94,9 @@ class Booking extends CI_Model{
 		return $guestName;
 	}
 
+	/*
+	provided booking id, this function returns all the room numbers associated with the booking id.
+	*/
 	public function get_Room_Number($bookingID){
 		$this->db->select('room_id');
 		$this->db->where('booking_id', $bookingID);
@@ -108,6 +114,10 @@ class Booking extends CI_Model{
 		return $bookedRooms;
 	}
 
+
+	/*
+	Provided hotelID and flag, this function returns booking details which includes, booking id, guest id, guest's name, checkin date, checkout date, list of room numbers.
+	*/
 	public function get_Booking_Details($hotelID, $flag){
 		$this->db->select('booking_id, guest_id, checkin_date');
 		$this->db->select('checkout_date');
@@ -118,8 +128,8 @@ class Booking extends CI_Model{
 		}
 		else if ($flag == '1') {
 			$dateToday = date('Y-m-d');
-			//$this->db->where('checkin_date', $dateToday);
-			//$this->db->where('status', '0');
+			$this->db->where('checkin_date', $dateToday);
+			$this->db->where('status', '0');
 		}
 		else{
 			echo "flag set to invalid integer or the flag is not set at all.";
