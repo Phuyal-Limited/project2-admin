@@ -18,7 +18,7 @@ function pickup(){
 		url: 'pickup',
 		dataType: 'json',
 		success: function(response){
-			alert(response);
+			
 			var size = response.length;
 			for(var i=0;i<size;i++){
 				$("#pickup_show").append('<div class="guest-row"> <!-- starts:guest-row -->'+
