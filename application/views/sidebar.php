@@ -26,10 +26,10 @@
 			<li class="current"><a href="home"><i class="fa fa-home"></i>Dashboard</a></li>
 			<li><a href=""><i class="fa fa-book"></i>Add bookings</a></li>
 			<li><a href="room_setting"><i class="fa fa-building"></i>Room Setting</a></li>
+			<li><a href="edit">Profile Edit</a></li>
 			<li><a href="">Bookings</a></li>
 			<li><a href="">Arrivals</a></li>
 			<li><a href="change_password">Change Password</a></li>
-			<li><a href="">Lorem Ipsum</a></li>
 		</ul>
 	</div>
 </div><!-- ends: section1,sidebar -->

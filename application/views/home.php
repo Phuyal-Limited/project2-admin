@@ -80,72 +80,10 @@
 										<div class="data-block-head">
 											Sheduled Arrivals
 										</div>
-										<div class="data-block-content"> <!-- starts:Data-block-content -->
-											<div class="guest-row"> <!-- starts:guest-row -->
-												<div class="row">
-												<div class="col-xs-12 col-sm-12 col-md-12 data-block-guest-name">Bidur Subedi</div>
-												<div class="col-xs-12 col-sm-12 col-md-12 pickup-time">
-													<em>Rooms: </em>
-													<span>101</span><span>102</span>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6">
-													From:<br /> <em>20/12/2013</em>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6">
-													To:<br /> <em>25/12/2013</em>
-												</div>
-											</div> 
-											</div> <!-- ends:guest-row -->
 
-											<div class="guest-row"> <!-- starts:guest-row -->
-												<div class="row">
-												<div class="col-xs-12 col-sm-12 col-md-12 data-block-guest-name">Niranjan Udas</div>
-												<div class="col-xs-12 col-sm-12 col-md-12 pickup-time">
-													<em>Rooms: </em>
-													<span>101</span>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6">
-													From:<br /> <em>20/12/2013</em>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6">
-													To:<br /> <em>25/12/2013</em>
-												</div>
-											</div> 
-											</div> <!-- ends:guest-row -->
-
-											<div class="guest-row"> <!-- starts:guest-row -->
-												<div class="row">
-												<div class="col-xs-12 col-sm-12 col-md-12 data-block-guest-name">Mahesh Thapa</div>
-												<div class="col-xs-12 col-sm-12 col-md-12 pickup-time">
-													<em>Rooms: </em>
-													<span>101</span><span>102</span><span>102</span>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6">
-													From:<br /> <em>20/12/2013</em>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6">
-													To:<br /> <em>25/12/2013</em>
-												</div>
-											</div> 
-											</div> <!-- ends:guest-row -->
-
-											<div class="guest-row"> <!-- starts:guest-row -->
-												<div class="row">
-												<div class="col-xs-12 col-sm-12 col-md-12 data-block-guest-name">Sudip Dawadi</div>
-												<div class="col-xs-12 col-sm-12 col-md-12 pickup-time">
-													<em>Rooms: </em>
-													<span>101</span><span>102</span><span>102</span><span>102</span> <br />
-													<span>101</span><span>101</span>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6">
-													From:<br /> <em>20/12/2013</em>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6">
-													To:<br /> <em>25/12/2013</em>
-												</div>
-											</div> 
-											</div> <!-- ends:guest-row -->
+										<div class="data-block-content" id="scheduled_show"> <!-- starts:Data-block-content -->
 										</div>  <!-- ends:Data-block-content -->
+									
 									</div>
 								</div>  <!-- ends:data block-small -->
 
@@ -154,72 +92,10 @@
 										<div class="data-block-head">
 											Recents Bookings
 										</div>
-										<div class="data-block-content"> <!-- starts:Data-block-content -->
-											<div class="guest-row"> <!-- starts:guest-row -->
-												<div class="row">
-												<div class="col-xs-12 col-sm-12 col-md-12 data-block-guest-name">Bidur Subedi</div>
-												<div class="col-xs-12 col-sm-12 col-md-12 pickup-time">
-													<em>Rooms: </em>
-													<span>101</span><span>102</span>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6">
-													From:<br /> <em>20/12/2013</em>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6">
-													To:<br /> <em>25/12/2013</em>
-												</div>
-											</div> 
-											</div> <!-- ends:guest-row -->
 
-											<div class="guest-row"> <!-- starts:guest-row -->
-												<div class="row">
-												<div class="col-xs-12 col-sm-12 col-md-12 data-block-guest-name">Niranjan Udas</div>
-												<div class="col-xs-12 col-sm-12 col-md-12 pickup-time">
-													<em>Rooms: </em>
-													<span>101</span>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6">
-													From:<br /> <em>20/12/2013</em>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6">
-													To:<br /> <em>25/12/2013</em>
-												</div>
-											</div> 
-											</div> <!-- ends:guest-row -->
-
-											<div class="guest-row"> <!-- starts:guest-row -->
-												<div class="row">
-												<div class="col-xs-12 col-sm-12 col-md-12 data-block-guest-name">Mahesh Thapa</div>
-												<div class="col-xs-12 col-sm-12 col-md-12 pickup-time">
-													<em>Rooms: </em>
-													<span>101</span><span>102</span><span>102</span>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6">
-													From:<br /> <em>20/12/2013</em>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6">
-													To:<br /> <em>25/12/2013</em>
-												</div>
-											</div> 
-											</div> <!-- ends:guest-row -->
-
-											<div class="guest-row"> <!-- starts:guest-row -->
-												<div class="row">
-												<div class="col-xs-12 col-sm-12 col-md-12 data-block-guest-name">Sudip Dawadi</div>
-												<div class="col-xs-12 col-sm-12 col-md-12 pickup-time">
-													<em>Rooms: </em>
-													<span>101</span><span>102</span><span>102</span><span>102</span> <br />
-													<span>101</span><span>101</span>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6">
-													From:<br /> <em>20/12/2013</em>
-												</div>
-												<div class="col-xs-6 col-sm-6 col-md-6">
-													To:<br /> <em>25/12/2013</em>
-												</div>
-											</div> 
-											</div> <!-- ends:guest-row -->
+										<div class="data-block-content" id="recent_show"> <!-- starts:Data-block-content -->
 										</div>  <!-- ends:Data-block-content -->
+									
 									</div>
 								</div>  <!-- ends:data block-small -->
 

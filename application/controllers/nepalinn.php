@@ -105,11 +105,15 @@ class Nepalinn extends CI_Controller {
 		}
 	}
 
+
+	//logout function
 	public function logout(){
 		$this->session->sess_destroy();
 		$this->index();
 	}
 
+
+	//profile edit function
 	public function edit()
 	{
 		$data['title'] = 'Edit | Home';
@@ -238,11 +242,26 @@ class Nepalinn extends CI_Controller {
     	}
 	}
 
-	//autoload pickup details
+	//autoload today pickup details
 	public function pickup(){
 		$hotel_id = $this->session->userdata['hotel_id'];
-		$pickup_details = $this->booking->get_Pickup_Details(1);
+		$pickup_details = $this->booking->get_Pickup_Details($hotel_id);
 		print_r(json_encode($pickup_details));
+	}
+
+
+	//autoload scheduled arrival details
+	public function scheduled_arrival(){
+		$hotel_id = $this->session->userdata['hotel_id'];
+		$scheduled_arrival = $this->booking->get_Booking_Details($hotel_id, 0);
+		print_r(json_encode($scheduled_arrival));
+	}
+
+	//autoload scheduled arrival details
+	public function recent_booking(){
+		$hotel_id = $this->session->userdata['hotel_id'];
+		$recent_booking = $this->booking->get_Booking_Details($hotel_id, 1);
+		print_r(json_encode($recent_booking));
 	}
 
 }
