@@ -54,5 +54,31 @@ class Booking extends CI_Model{
 		return $resultFacilities; //Returns two dimentional array
 	}
 
+	/*
+	Given hotelID, this function returns name of the guests who needs to be picked up from specified place at specified time
+	*/
+	public function get_Pickup_Details($hotelID)
+	{
+		$dateToday = date('Y-m-d');
+		$this->db->select('guest_id, pickup_place, pickup_time');
+		$this->db->where('hotel_id', $hotelID);
+		$this->db->where('checkin_date', $dateToday);
+		$this->db->where('pickup_req', '1');
+		$this->db->where('status', '1');
+		$id = $this->db->get('booking');
+		$details = array();
+		$resultDetails = array();
+		foreach ($id->result() as $row) {
+			$this->db->select('name');
+			$this->db->where('guest_id', $row->guest_id);
+			$guestName = $this->db->get('guest');
+			$guestName = $guestName->result();
+			$details[0] = $guestName[0]->name;
+			$details[1] = $row->pickup_place;
+			$details[2] = $row->pickup_time;
+			array_push($resultDetails, $details);
+		}
+		return $resultDetails;
+	}
 }
 ?>
