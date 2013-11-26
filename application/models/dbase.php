@@ -58,6 +58,11 @@ class Dbase extends CI_Model{
 		$this->db->delete('hotel_facilities'); 
 		$this->db->insert_batch('hotel_facilities', $hotel_facilities); 
 	}
+
+	//update hotel images
+	public function image_add($details){
+		$this->db->insert_batch('images', $details);
+	}
 }
 
 ?>

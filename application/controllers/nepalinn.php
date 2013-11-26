@@ -139,79 +139,109 @@ class Nepalinn extends CI_Controller {
 		}else{
 			
 			$hotel_id = $this->session->userdata['hotel_id'];
-			// $hotel_details = $this->booking->get_Hotel_Details($hotel_id);
+			$hotel_details = $this->booking->get_Hotel_Details($hotel_id);
 
-			// $hotel_name = $hotel_details[0]->name;
-			// $default_image = $hotel_details[0]->default_imgid;
-			// $last_id = $this->dbase->last_image();
-			// if($default_image==0){
-			// 	$default_image = $last_id;
-			// 	$last_id = $last_id + 1;
-			// }
+			$images_list = $hotel_details[0]->image_id;
+			$hotel_name = $hotel_details[0]->name;
+			$default_image_id = $hotel_details[0]->default_imgid;
+
+			//get last id + 1. if empty gets 1
+			$last_id = $this->dbase->last_image();
+			if($_FILES['default_image']['error']==0){
+				if($default_image_id==0){
+					$default_image = $last_id;
+					$last_id = $last_id + 1;
+				}
+			}
 			
 			
 
-			// //image upload to the folder
+			//image upload to the folder
 			
 
-			// $this->load->library('upload');
+			$this->load->library('upload');
 
-	  //      $config['upload_path'] = './assets/images/hotel_image/';
-	  //      $config['allowed_types'] = 'jpg|png|jpeg|JPG|PNG|JPEG';
+	       $config['upload_path'] = './assets/images/hotel_image/';
+	       $config['allowed_types'] = 'jpg|png|jpeg|JPG|PNG|JPEG';
 	       
-	  //      $config['overwrite'] = TRUE;
+	       $config['overwrite'] = TRUE;
 
-	  //      $config['file_name'] = $hotel_name;
-	  //      $this->upload->initialize($config);
+	       
 	        
-	  //      $details = array();
-	  //      $error = array();
-	  //      $upload_error = array();
-	  //      $i++;
-	  //      foreach($_FILES as $field => $file)
-	  //      {
-	       	
-	  //          // No problems with the file
-	  //          if($file['error'] == 0)
-	  //          {
-	  //              // So lets upload
-	  //              if ($this->upload->do_upload($field))
-	  //              {
+	       $details = array();
+	       $error = array();
+	       $upload_error = array();
+	       $id_list = array();
+	       foreach($_FILES as $field => $file)
+	       {
+				
+	           // No problems with the file
+	           if($file['error'] == 0)
+	           {
+	           		//provide the file name before uploading like 1.jpg, 2.png etc correspond to the image_id
+	           		if($field=='default_image'){
+		       			$config['file_name'] = $default_image;
+	       			}else{
+	       				$config['file_name'] = $last_id;
 
-	  //                  $data = $this->upload->data();
-	  //                 //default image update
-	  //                  if($field=='default_image'){
-	  //               		$name=$data['file_name'];
-	  //                  		$image_details = array(
-	  //                  		'name' => $name,
-	  //                   		'path' => 'http://admin.nepalinn.com/assets/images/hotel_image/'.$name,
-	  //                   		'alt' => $hotel_name
-	  //                   	);
+	       				array_push($id_list, $last_id);    //id list for updating
+	       				$last_id = $last_id + 1;
+	       			}
+	       			$this->upload->initialize($config);
 
-	  //                   	$this->dbase->image_add($default_image);
-	  //                   }else{
-	  //                   	$name = $this->input->post('image_name');
-	  //                   	if($name==''){
-	  //                   		$name=$data['file_name'];
-	  //                   	}
 
-	  //                   	$image_details = array(
-	  //                   		'name' => $name,
-	  //                   		'path' => 'http://admin.nepalinn.com/assets/images/hotel_image/'.$name,
-	  //                   		'alt' => $name
-	  //                   	);
-	  //                   	array_push($details, $data);
-	  //               	}
-	  //               }else
-	  //               {
-	  //                   $errors = $this->upload->display_errors();print_r($errors);
-	  //                   array_push($upload_error, $error);
-	  //               }
-	  //           }
-	  //           else{
-		 //    		array_push($error, 'Error');
-	  //           }
-	  //       }
+
+	               // So lets upload
+	               if ($this->upload->do_upload($field))
+	               {
+
+	                   $data = $this->upload->data();
+
+	                   $name = $data['file_name']; //get the name of file name like 1.jpg, 2.png - correspond to the image_id
+	                   
+
+	                   	//default image update
+	                   	if($field=='default_image'){
+	                		$image_details = array(
+	                   			'name' => $hotel_name,
+	                    		'path' => 'http://admin.nepalinn.com/assets/images/hotel_image/'.$name,
+	                    		'alt' => $hotel_name
+	                    	);
+
+	                		if($default_image_id==0){
+	                			array_push($details, $image_details);
+	                		}else{
+	                			//do nothing as the file is uploaded to the folder and database contains the data
+	                		}
+	                    }else{
+	                    	$image_details = array(
+	                    		'name' => $hotel_name,
+	                    		'path' => 'http://admin.nepalinn.com/assets/images/hotel_image/'.$name,
+	                    		'alt' => $hotel_name
+	                    	);
+	                    	array_push($details, $image_details);
+	                	}
+	                }else
+	                {
+	                    $errors = $this->upload->display_errors();print_r($errors);
+	                    array_push($upload_error, $error);
+	                }
+	            }
+	            else{
+		    		array_push($error, 'Error');
+	            }
+	        }
+
+	        //change array of id list to comma separated string
+	        if($images_list != ''){
+	        	array_push($id_list, $images_list);	
+	        }
+	        
+	        $ids = implode(', ', $id_list);
+
+
+	        //update images or to say add new images
+	        $this->dbase->image_add($details);
 	        
 			//update hotel facilities
 			$hotel_facilities = array();
@@ -223,7 +253,12 @@ class Nepalinn extends CI_Controller {
 
 			$this->dbase->hotel_facilities_update($hotel_facilities, $hotel_id);
 
+
+
 	        //update hotel details
+	        if(!isset($default_image)){
+	        	$default_image = $default_image_id;
+	        }
 	        $update_hotel = array(
 	        	'address' => $this->input->post('address'),
 	        	'city' => $this->input->post('city'),
@@ -232,6 +267,8 @@ class Nepalinn extends CI_Controller {
 	        	'phone1' => $this->input->post('phone1'),
 	        	'phone2' => $this->input->post('phone2'),
 	        	'email' => $this->input->post('email'),
+	        	'image_id' => $ids,
+	        	'default_imgid' => $default_image,
 	        	'description' => $this->input->post('description')
 	        );
 
