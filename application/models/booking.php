@@ -149,5 +149,35 @@ class Booking extends CI_Model{
 
 		return $allDetails;
 	}
+
+	/*
+	provided hotel id, this function returns all the room templates and other information in room_templates table associated to the specified hotel by the hotel id.
+	*/
+	public function get_Templates($hotelID){
+		$eachTemplates = array();
+		$allTemplates = array();
+		$this->db->where('hotel_id', $hotelID);
+		$templates = $this->db->get('room_templates/standards');
+		foreach ($templates->result() as $row) {
+			$eachTemplates = get_object_vars($row);
+			array_push($allTemplates, $eachTemplates);
+		}
+		return $allTemplates;
+	}
+
+	/*
+	provided template id, this function returns the list of rooms and other information in room table associated to the specified hotel by the template id.
+	*/
+	public function get_Rooms($templateID){
+		$eachRoom = array();
+		$allRooms = array();
+		$this->db->where('template_id', $templateID);
+		$rooms = $this->db->get('room');
+		foreach ($rooms->result() as $row) {
+			$eachRoom = get_object_vars($row);
+			array_push($allRooms, $eachRoom);
+		}
+		return $allRooms;
+	}
 }
 ?>
