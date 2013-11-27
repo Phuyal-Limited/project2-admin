@@ -65,6 +65,39 @@ class Rooms extends CI_Model{
 		$result=$result[0]->status;
 		return $result;
 	}
-}
 
+	
+	/*Function to obtain the list of rooms in hotel in that day
+	  Returns an array of room number, standard and status
+	  By: Bidur Subedi
+	  Nov 27, 2013 */
+	public function get_room_with_status_today($hotelID){
+		$dateToday = date('Y-m-d');
+		$room_with_status=array();
+		$templates=$this->booking->get_Templates($hotelID);		
+		$roomInfo=array();
+		$result=array();
+		foreach ($templates as $aTemplate) {
+			$template_Name=$aTemplate['name'];
+			$rooms=$this->booking->get_Rooms($aTemplate['template_id']);
+			foreach ($rooms as $aRoom) {
+				$roomInfo['roomNumber']=$aRoom['room_no'];
+				$roomInfo['standard']=$template_Name;
+				$status=$this->get_status($aRoom['room_id'],$dateToday);
+				if ($status == 0) {
+					$roomInfo['status']="available";
+				}
+				else if ($status == 1) {
+					$roomInfo['status']="occupied";
+				}
+				else{
+					$roomInfo['status']="booked";	
+				}
+				array_push($result, $roomInfo);
+			}
+		}
+		return $result;
+	}
+
+}
 ?>
