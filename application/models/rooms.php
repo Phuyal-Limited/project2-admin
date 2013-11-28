@@ -42,7 +42,9 @@ class Rooms extends CI_Model{
 	/*Function to obtain the status of room for a range of dates
 	  Room ID and the date range  to check status should be supplied
 	  By: Bidur Subedi
-	  Nov 26, 2013 */
+	  Nov 26, 2013 
+	  Altered: Nov 28, 2013 by Bidur Subedi
+	  Alteration: Removal of Bugs. Some test condition were missing*/
 	public function get_status_on_range($roomID,$fromDate,$toDate){
 		//Obtain all booking with that room ID
 		$this->db->select('booking_id');
@@ -57,8 +59,9 @@ class Rooms extends CI_Model{
 			return 0;
 		$this->db->select('status');
 		$this->db->where_in('booking_id',$book_id);
-		$this->db->where("checkin_date < '$fromDate' AND checkout_date > '$fromDate'");
-		$this->db->or_where("checkin_date < '$toDate' AND checkout_date > '$toDate'");
+		$this->db->where("checkin_date <= '$fromDate' AND checkout_date > '$fromDate'");
+		$this->db->or_where("checkin_date < '$toDate' AND checkout_date >= '$toDate'");
+		$this->db->or_where("checkin_date > '$fromDate' AND checkout_date < '$toDate'");
 		$result=$this->db->get('booking')->result();
 		if($result == array())
 			return 0;
@@ -117,5 +120,30 @@ class Rooms extends CI_Model{
 		return false;
 	}
 
+	/*Function to return a list of rooms available for a range of date
+	  takes hotel ID and range of dates as argument
+	  returns an array of Standards with array of available rooms each
+	  By: Bidur Subedi
+	  Nov 28, 2013 */
+	public function get_available_rooms($hotelID,$fromDate,$toDate){
+		$result = array();
+		$templates=$this->booking->get_Templates($hotelID);
+		foreach ($templates as $aTemplate) {
+			$templateID=$aTemplate['template_id'];
+			$rooms=$this->booking->get_Rooms($aTemplate['template_id']);
+			$validRooms = array();
+			foreach ($rooms as $aRoom) {
+				$roomStatus=$this->get_status_on_range($aRoom['room_id'],$fromDate,$toDate);
+				if($roomStatus == 0){
+					array_push($validRooms, $aRoom);
+				}
+			}
+			if($validRooms != array()){
+				$aTemplate['rooms']=$validRooms;
+				array_push($result, $aTemplate);
+			}
+		}
+		return $result;
+	}
 }
 ?>
