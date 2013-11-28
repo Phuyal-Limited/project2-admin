@@ -113,42 +113,15 @@
 										</div>
 										<div class="data-block-content room-content">
 											<div class="row room-boxes"> <!-- starts:room row -->
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
-													<div class="room-no booked">209</div>
-												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
-													<div class="room-no occupied">209</div>
-												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
-													<div class="room-no available">209</div>
-												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
-													<div class="room-no occupied">209</div>
-												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
-													<div class="room-no booked">209</div>
-												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
-													<div class="room-no available">209</div>
-												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
-													<div class="room-no occupied">209</div>
-												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
-													<div class="room-no available">209</div>
-												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
-													<div class="room-no occupied">209</div>
-												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
-													<div class="room-no booked">209</div>
-												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box" rel="tooltip" title="Normal Room">
-													<div class="room-no occupied">209</div>
-												</div>
-												<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="Normal Room">
-													<div class="room-no available">209</div>
-												</div>
+												<?php foreach ($rooms as $aRoom) {?>
+													<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="<?php echo $aRoom['standard']; ?>">
+														<div class="room-no <?php echo $aRoom['status']; ?>"><?php echo $aRoom['roomNumber']; ?></div>
+													</div>
+												<?php } 
+													if($rooms == array()){
+														echo "There are no rooms entered in your Inn";
+													}
+												?>
 											</div><!-- starts:room row -->
 											<div class="row ">
 												<div class="room-filter">

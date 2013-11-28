@@ -21,6 +21,8 @@ class Nepalinn extends CI_Controller {
 	public function home()
 	{
 		$data['title'] = 'Nepalinn | Home';
+		$hotel_id = $this->session->userdata['hotel_id'];
+		$data['rooms'] = $this->rooms->get_room_with_status_today($hotel_id);
 		$this->load->view('header', $data);
 		$this->load->view('home');
 		$this->load->view('footer');
