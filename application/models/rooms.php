@@ -99,5 +99,23 @@ class Rooms extends CI_Model{
 		return $result;
 	}
 
+	/*Function to check if a room number exists in a hotel
+	  Returns boolean. True if exist and false if not
+	  hotel ID and room number to be passed as arguments
+	  By: Bidur Subedi
+	  Nov 28, 2013 */
+	public function room_no_exist($hotelID,$roomNumber){
+		$templates=$this->booking->get_Templates($hotelID);		
+		foreach ($templates as $aTemplate) {
+			$rooms=$this->booking->get_Rooms($aTemplate['template_id']);
+			foreach ($rooms as $aRoom) {
+				$room_no=$aRoom['room_no'];
+				if($room_no == $roomNumber)
+					return true;
+			}
+		}
+		return false;
+	}
+
 }
 ?>
