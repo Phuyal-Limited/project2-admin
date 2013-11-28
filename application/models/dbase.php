@@ -63,6 +63,11 @@ class Dbase extends CI_Model{
 	public function image_add($details){
 		$this->db->insert_batch('images', $details);
 	}
+
+	//add new template
+	public function add_Template($details){
+		$this->db->insert('room_templates/standards', $details);
+	}
 }
 
 ?>

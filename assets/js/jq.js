@@ -39,6 +39,7 @@ $(document).ready(function(){
   	});
 
 
+
 });
 
 
@@ -74,4 +75,26 @@ function validate(){
 		$("#validate-msg").html('Password Not Match');
 		return false;
 	}
+}
+
+
+//ajax add room
+function add_room(i){
+	var template_id = $("#template"+i).val();
+	var room_no = $("#room_no"+i).val();
+	var floor_no = $("#floor_no").val();
+	
+	$.ajax({
+		url: 'add_room',
+		type: 'post',
+		data: {
+			template_id: template_id,
+			room_no: room_no,
+			floor_no: floor_no
+		},
+		success: function(response){
+			alert(response);
+		}
+	});
+	
 }

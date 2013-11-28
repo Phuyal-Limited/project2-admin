@@ -309,16 +309,16 @@ padding: 4px 20px;
 
 
 
-.available{
-	background-color: #444135;
+.occupied{
+	background-color: #444135; /*black*/
 }
 
 .booked{
-	background-color: #0E6EA3;
+	background-color: #0E6EA3; /*blue*/
 }
 
-.occupied{
-	background-color: #ed6f58;
+.available{
+	background-color: #ed6f58; /*orange*/
 }
 
 .room-filter{

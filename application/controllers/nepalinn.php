@@ -31,6 +31,17 @@ class Nepalinn extends CI_Controller {
 	public function room_setting()
 	{
 		$data['title'] = 'Nepalinn | Room Setting';
+
+		$allrooms = array();
+		$hotel_id = $this->session->userdata['hotel_id'];
+		$data['template_details'] = $this->booking->get_Templates($hotel_id);
+		foreach ($data['template_details'] as $eachTemplate) {
+			$template_id = $eachTemplate['template_id'];
+			$template_room = $this->booking->get_Rooms($template_id);
+			array_push($allrooms, $template_room);
+		}//print_r($allrooms);exit();
+		$data['template_room'] = $allrooms;
+
 		$this->load->view('header', $data);
 		$this->load->view('room_setting');
 		$this->load->view('footer');
@@ -136,7 +147,7 @@ class Nepalinn extends CI_Controller {
 	}
 
 	public function edit_update(){
-		if(!isset($_POST['update'])){
+		if($this->input->post('update')==false){
 			redirect('home');
 		}else{
 			
@@ -301,6 +312,36 @@ class Nepalinn extends CI_Controller {
 		$hotel_id = $this->session->userdata['hotel_id'];
 		$recent_booking = $this->booking->get_Booking_Details($hotel_id, 1);
 		print_r(json_encode($recent_booking));
+	}
+
+	//add new hotel template
+	public function add_template(){
+		if($this->input->post('add')==false){
+			redirect('home');
+		}else{
+			$hotel_id = $this->session->userdata['hotel_id'];
+			$template_details = array(
+				'name' => $this->input->post('template_name'),
+				'hotel_id' => $hotel_id,
+				'rate' => $this->input->post('rate'),
+				'description' => $this->input->post('description')
+			);
+
+			$this->dbase->add_Template($template_details);
+			$this->room_setting();
+		}
+	}
+
+	//add room to the room standards
+	public function add_room(){
+		if(!isset($_POST['template_id'])){
+			echo 'exy';exit();redirect('home');
+		}else{
+			$hotel_id = $this->session->userdata['hotel_id'];
+			$room_no = $_POST['room_no'];
+			$room_exist = $this->rooms->room_no_exist($hotel_id, $room_no);
+			echo $room_exist;
+		}
 	}
 
 }
