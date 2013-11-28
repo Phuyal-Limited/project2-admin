@@ -292,6 +292,14 @@ class Nepalinn extends CI_Controller {
     	}
 	}
 
+	//autoload rooms
+	public function rooms(){
+		$hotel_id = $this->session->userdata['hotel_id'];
+		$rooms = $this->rooms->get_room_with_status_today($hotel_id);
+		print_r(json_encode($rooms));
+	}
+
+
 	//autoload today pickup details
 	public function pickup(){
 		$hotel_id = $this->session->userdata['hotel_id'];
@@ -335,12 +343,29 @@ class Nepalinn extends CI_Controller {
 	//add room to the room standards
 	public function add_room(){
 		if(!isset($_POST['template_id'])){
-			echo 'exy';exit();redirect('home');
+			redirect('home');
 		}else{
 			$hotel_id = $this->session->userdata['hotel_id'];
 			$room_no = $_POST['room_no'];
 			$room_exist = $this->rooms->room_no_exist($hotel_id, $room_no);
-			echo $room_exist;
+			if($room_exist!=1){
+				$details = array(
+					'template_id' => $_POST['template_id'],
+					'room_no' => $room_no,
+					'floor_no' => 0
+				);
+				$this->dbase->add_Room($details);
+
+
+				//get the template and rooms
+				$template_id = $_POST['template_id'];
+				$template_room = $this->booking->get_Rooms($template_id);
+
+				print_r(json_encode($template_room));exit();
+			}else{
+				$error['msg'] = 'Room already added.';
+				print_r(json_encode($error));exit();
+			}
 		}
 	}
 

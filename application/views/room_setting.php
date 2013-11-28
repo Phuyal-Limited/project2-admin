@@ -29,7 +29,7 @@
 										<div class="clear"></div>
 
 
-										<div class="row room-boxes"> <!-- starts:room row -->
+										<div class="row room-boxes" id="<?php echo 'display_room'.$i;?>"> <!-- starts:room row -->
 
 											<?php
 												$row = sizeof($template_room[$i]);
@@ -56,22 +56,16 @@
 													</div>
 													<div class="col-md-4 col-sm-4 col-xs-4">
 														<input type="text" id="room_no<?php echo $i;?>" name="room_no<?php echo $i;?>" class="form-control">
-													</div><br/>
-													<div class="clear"></div>
-													<div class="col-md-3 col-sm-3 col-xs-3">
-														<label>Floor No:</label>
-													</div>
-													<div class="col-md-4 col-sm-4 col-xs-4">
-														<input type="text" id="floor_no<?php echo $i;?>" name="floor_no<?php echo $i;?>" class="form-control">
-													</div><br/>
-													<div class="clear"></div>
+													</div>													
 													<div class="col-md-5 col-sm-5 col-xs-5">
 														<input type="hidden" id="template<?php echo $i;?>" value="<?php echo $template_details[$i]['template_id'];?>" />
 														<input type="submit" id="submit<?php echo $i;?>" name="submit" value="Add" class="btn btn-default">
 													</div>
 												</form>
+
 												</div>
 											</div>
+											<div id='error-msg<?php echo $i;?>'></div>
 											<div class="clear"></div>
 									</div>
 								</div>
@@ -81,7 +75,7 @@
 							}
 						?>
 					</div>  <!-- starts:room-categories -->
-
+					<input type="hidden" id="previous" />
 					<div class="row room-add-wrap">
 						<div class="col-md-12">
 							<div class="room-add">

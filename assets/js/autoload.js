@@ -10,11 +10,13 @@ function done(x){
 		pickup();
 		scheduled();
 		recent();
+		rooms();
 	}
 	setInterval(function(){
 		pickup();
 		scheduled();
 		recent();
+		rooms();
 	},60000);
 }
 
@@ -120,6 +122,29 @@ function recent(){
 											'</div> <!-- ends:guest-row -->';
 				}
 				$("#recent_show").html(recent);
+			}
+		}
+	});
+}
+
+//ajax to get the rooms and their avaibility of that hotel
+function rooms(){
+	$("#rooms-show").html('');
+	$.ajax({
+		url: 'rooms',
+		dataType: 'json',
+		success: function(response){
+			
+			var size = response.length;
+			if(size==0){
+				$("#rooms-show").html('<br />There are no rooms entered in your Inn');
+			}else{
+				for(var i=0;i<size;i++){
+					$("#rooms-show").append('<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="'+response[i].standard+'">'+
+														'<div class="room-no '+response[i].status+'">'+response[i].roomNumber+'</div>'+
+													'</div>');
+				}
+				
 			}
 		}
 	});

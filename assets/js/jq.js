@@ -80,6 +80,16 @@ function validate(){
 
 //ajax add room
 function add_room(i){
+	var pre = $("#previous").val();
+	
+	//hiding the previous template error message
+	if(pre==''){
+		//do nothing
+	}else if(pre==i){
+		//do nothing
+	}else{
+		$("#error-msg"+pre).html('');
+	}
 	var template_id = $("#template"+i).val();
 	var room_no = $("#room_no"+i).val();
 	var floor_no = $("#floor_no").val();
@@ -87,14 +97,30 @@ function add_room(i){
 	$.ajax({
 		url: 'add_room',
 		type: 'post',
+		dataType: 'json',
 		data: {
 			template_id: template_id,
 			room_no: room_no,
 			floor_no: floor_no
 		},
 		success: function(response){
-			alert(response);
+			
+			if(response.msg=='Room already added.'){
+				$("#error-msg"+i).html(response.msg);
+			}else{
+				$("#display_room"+i).html('');
+
+				var size = response.length;
+				for(var x=0;x<size;x++){
+					$("#display_room"+i).append('<div class="col-md-3 col-xs-3 col-sm-2 room-box">'+ 
+												'<div class="room-no available">'+response[x].room_no+'</div>'+
+											'</div>');
+				}
+				$("#room_no"+i).val('');
+				$("#previous").val(i);
+			}
+			
 		}
 	});
-	
+	return false;
 }

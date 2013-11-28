@@ -68,6 +68,11 @@ class Dbase extends CI_Model{
 	public function add_Template($details){
 		$this->db->insert('room_templates/standards', $details);
 	}
+
+	//add room no to a template
+	public function add_Room($details){
+		$this->db->insert('room', $details);	
+	}
 }
 
 ?>
