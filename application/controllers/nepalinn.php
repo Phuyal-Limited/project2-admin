@@ -311,14 +311,14 @@ class Nepalinn extends CI_Controller {
 	//autoload scheduled arrival details
 	public function scheduled_arrival(){
 		$hotel_id = $this->session->userdata['hotel_id'];
-		$scheduled_arrival = $this->booking->get_Booking_Details($hotel_id, 1);
+		$scheduled_arrival = $this->booking->get_Booking_Details($hotel_id, 0);
 		print_r(json_encode($scheduled_arrival));
 	}
 
 	//autoload scheduled arrival details
 	public function recent_booking(){
 		$hotel_id = $this->session->userdata['hotel_id'];
-		$recent_booking = $this->booking->get_Booking_Details($hotel_id, 0);
+		$recent_booking = $this->booking->get_Booking_Details($hotel_id, 1);
 		print_r(json_encode($recent_booking));
 	}
 
