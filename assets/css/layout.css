@@ -12,6 +12,11 @@ html,body{
 	font-size: 13px;
 }
 
+@font-face {
+    font-family: "fontawesome-webfont";
+    src: url(../fonts/fontawesome-webfont.ttf) format("truetype");
+}
+
 label{
 	text-transform: uppercase;
 	font-size: 12px !important;
@@ -309,16 +314,16 @@ padding: 4px 20px;
 
 
 
-.occupied{
-	background-color: #444135; /*black*/
+.available{
+	background-color: #444135;
 }
 
 .booked{
-	background-color: #0E6EA3; /*blue*/
+	background-color: #0E6EA3;
 }
 
-.available{
-	background-color: #ed6f58; /*orange*/
+.occupied{
+	background-color: #ed6f58;
 }
 
 .room-filter{
@@ -386,3 +391,54 @@ padding: 4px 20px;
 .add-room-category-form{
 	padding: 30px 50px;
 }
+
+.edit-update-wrap{
+	background-color: #fff;
+	border: 1px solid #c7c7c7;
+}
+
+.edit-update-head{
+	text-align: center;
+	padding: 15px;
+	font-size: 17px;
+	border-bottom: 1px solid #c7c7c7;
+}
+
+
+.inn-image{
+	padding: 2px;
+	background-color: #fff;
+	border:1px solid #c7c7c7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
