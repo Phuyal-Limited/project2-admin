@@ -41,8 +41,13 @@
 				</div>
 			</div>
 			<div class="col-md-12 col-sm-4 col-xs-12">
-				<select class="form-control">
-					<option>Any Category</option>
+				<select class="form-control" name="template">
+					<option value="any">Any Category</option>
+					<?php
+					foreach ($template as $aTemplate) {
+						echo "<option value='$aTemplate[template_id]'>$aTemplate[name]</option>";
+					}
+					?>
 				</select>
 				<div class='clear-small'></div>
 			</div>

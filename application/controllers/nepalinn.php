@@ -22,6 +22,7 @@ class Nepalinn extends CI_Controller {
 	{
 		$data['title'] = 'Nepalinn | Home';
 		$hotel_id = $this->session->userdata['hotel_id'];
+		$data['template'] = $this->booking->get_Templates($hotel_id);
 		$data['rooms'] = $this->rooms->get_room_with_status_today($hotel_id);
 		$this->load->view('header', $data);
 		$this->load->view('home');
@@ -34,6 +35,7 @@ class Nepalinn extends CI_Controller {
 
 		$allrooms = array();
 		$hotel_id = $this->session->userdata['hotel_id'];
+		$data['template'] = $this->booking->get_Templates($hotel_id);
 		$data['template_details'] = $this->booking->get_Templates($hotel_id);
 		foreach ($data['template_details'] as $eachTemplate) {
 			$template_id = $eachTemplate['template_id'];
@@ -77,6 +79,8 @@ class Nepalinn extends CI_Controller {
 		}
 		//Load the change password form
 		$data['title'] = 'Nepalinn | Change Password';
+		$hotel_id = $this->session->userdata['hotel_id'];
+		$data['template'] = $this->booking->get_Templates($hotel_id);
 		$this->load->view('header', $data);
 		$this->load->view('change_password');
 		$this->load->view('footer');
@@ -131,6 +135,7 @@ class Nepalinn extends CI_Controller {
 	{
 		$data['title'] = 'Edit | Home';
 		$hotel_id = $this->session->userdata['hotel_id'];
+		$data['template'] = $this->booking->get_Templates($hotel_id);
 		$data['hotel_details'] = $this->booking->get_Hotel_Details($hotel_id);
 		$data['hotel_facilities'] = $this->booking->get_hotel_facilities($hotel_id);
 		
