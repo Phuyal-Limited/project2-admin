@@ -145,5 +145,22 @@ class Rooms extends CI_Model{
 		}
 		return $result;
 	}
+
+	/*Function to return a list of rooms available for a range of date
+	  takes template ID and range of dates as argument
+	  returns an of available rooms
+	  By: Bidur Subedi
+	  Nov 29, 2013 */
+	public function get_available_rooms_by_template($template_id,$fromDate,$toDate){
+		$rooms=$this->booking->get_Rooms($template);
+		$validRooms = array();
+		foreach ($rooms as $aRoom) {
+			$roomStatus=$this->get_status_on_range($aRoom['room_id'],$fromDate,$toDate);
+			if($roomStatus == 0){
+				array_push($validRooms, $aRoom);
+			}
+		}
+		return $validRooms;
+	}
 }
 ?>
