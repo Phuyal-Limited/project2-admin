@@ -314,7 +314,7 @@ padding: 4px 20px;
 
 
 
-.available{
+.occupied{
 	background-color: #444135;
 }
 
@@ -322,12 +322,14 @@ padding: 4px 20px;
 	background-color: #0E6EA3;
 }
 
-.occupied{
+.available{
 	background-color: #ed6f58;
 }
 
 .room-filter{
 	padding: 20px 0px;
+	background-color: #fff;
+	border: 1px solid #c7c7c7;
 }
 
 .data-block-filter-head{
@@ -411,6 +413,13 @@ padding: 4px 20px;
 	border:1px solid #c7c7c7;
 }
 
+.clear-small{
+	padding: 5px;
+}
+
+.modal-header{
+	font-size: 20px;
+}
 
 
 

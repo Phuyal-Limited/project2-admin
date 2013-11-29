@@ -23,7 +23,7 @@ function done(x){
 
 //ajax to get pickup details
 function pickup(){
-	$("#pickup_show").html('');
+	
 	$.ajax({
 		url: 'pickup',
 		dataType: 'json',
@@ -33,6 +33,7 @@ function pickup(){
 			if(size==0){
 				$("#pickup_show").html('<br />No Pickup\'s Today');
 			}else{
+				$("#pickup_show").html('');
 				for(var i=0;i<size;i++){
 					$("#pickup_show").append('<div class="guest-row"> <!-- starts:guest-row -->'+
 													'<div class="row">'+ 
@@ -50,7 +51,7 @@ function pickup(){
 
 //ajax to get scheduled arrivals of guest
 function scheduled(){
-	$("#scheduled_show").html('');
+	
 	$.ajax({
 		url: 'scheduled_arrival',
 		dataType: 'json',
@@ -60,6 +61,7 @@ function scheduled(){
 			if(size==0){
 				$("#scheduled_show").html('<br />No Scheduled Arrival');
 			}else{
+				$("#scheduled_show").html('');
 				var scheduled = '';
 				for(var i=0;i<size;i++){
 					scheduled += '<div class="guest-row"> <!-- starts:guest-row -->'+
@@ -90,7 +92,7 @@ function scheduled(){
 
 //ajax to get the recent booking of rooms
 function recent(){
-	$("#recent_show").html('');
+	
 	$.ajax({
 		url: 'recent_booking',
 		dataType: 'json',
@@ -100,6 +102,7 @@ function recent(){
 			if(size==0){
 				$("#recent_show").html('<br />No Bookings');
 			}else{
+				$("#recent_show").html('');
 				var recent = '';
 				for(var i=0;i<size;i++){
 					recent += '<div class="guest-row"> <!-- starts:guest-row -->'+
@@ -129,7 +132,7 @@ function recent(){
 
 //ajax to get the rooms and their avaibility of that hotel
 function rooms(){
-	$("#rooms-show").html('');
+	
 	$.ajax({
 		url: 'rooms',
 		dataType: 'json',
@@ -139,6 +142,7 @@ function rooms(){
 			if(size==0){
 				$("#rooms-show").html('<br />There are no rooms entered in your Inn');
 			}else{
+				$("#rooms-show").html('');
 				for(var i=0;i<size;i++){
 					$("#rooms-show").append('<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="'+response[i].standard+'">'+
 														'<div class="room-no '+response[i].status+'">'+response[i].roomNumber+'</div>'+

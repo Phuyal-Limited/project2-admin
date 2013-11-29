@@ -115,32 +115,6 @@
 											
 											<div class="row room-boxes" id="rooms-show"> <!-- starts:room row -->
 											</div><!-- starts:room row -->
-											
-											<div class="row ">
-												<div class="room-filter">
-													<div class="col-md-12 col-sm-12 col-xs-12">
-														<div class="data-block-filter-head">
-															Filter Rooms
-														</div>
-													</div>
-													<div class="col-md-4 col-sm-4 col-xs-4">
-														<select class="form-control">
-															<option>Any Category</option>
-														</select>
-													</div>
-													<div class="col-md-4 col-sm-4 col-xs-4">
-														<input class="form-control" type="text" id="datepicker-from" placeholder="From">
-													</div>
-													<div class="col-md-4 col-sm-4 col-xs-4">
-														<input class="form-control" type="text" id="datepicker-to" placeholder="To">
-													</div>
-													<div id="room-filter-button">
-														<input class="btn btn-default inn-button room-filter-btn"  type="submit" value="Filter">
-													</div>
-
-												</div>
-											</div>
-											
 										</div>
 									</div>
 								</div><!-- ends:data-block-big -->
