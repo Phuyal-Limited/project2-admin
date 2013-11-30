@@ -374,5 +374,35 @@ class Nepalinn extends CI_Controller {
 		}
 	}
 
+	public function available_room(){
+		if(!isset($_POST['template_id'])){
+			redirect('home');
+		}else{
+			$template_id = $_POST['template_id'];
+			$from = $_POST['from'];
+			$to = $_POST['to'];
+
+			$hotel_id = $this->session->userdata['hotel_id'];
+			$allroom = array();
+			$rooms_array = array();
+			if($template_id == 'any'){
+				$rooms = $this->rooms->get_available_rooms($hotel_id, $from, $to);
+				foreach ($rooms as $value) {
+					$allrooms = $value['rooms'];
+					array_push($rooms_array, $allrooms);
+				}
+				//getting only room details into a single dimensional array
+				$available_room = array();
+				foreach ($rooms_array as $inner) {
+  					$available_room = array_merge($available_room, $inner);
+				}
+			}else{
+				$available_room = $this->rooms->get_available_rooms_by_template($template_id, $from, $to);	
+			}
+			
+			print_r(json_encode($available_room));
+		}
+	}
+
 }
 

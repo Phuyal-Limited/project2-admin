@@ -39,6 +39,31 @@ $(document).ready(function(){
   	});
 
 
+	//check if the to date is earlier than from date
+	$("#datepicker-to").change(function(){
+		var from = $("#datepicker-from").val();
+		var to = $("#datepicker-to").val();
+		if(to==''){
+			$("#datepicker-to").val('');
+		}else if(to<from){
+			$("#datepicker-to").val(from);
+		}else{
+			//nothing
+		}
+		return false;
+	});
+
+	$("#datepicker-from").change(function(){
+		var from = $("#datepicker-from").val();
+		var to = $("#datepicker-to").val();
+		if(to!=''){
+			if(to<from){
+				$("#datepicker-to").val(from);
+			}
+		}
+		return false;
+	});
+
 
 });
 
@@ -123,4 +148,48 @@ function add_room(i){
 		}
 	});
 	return false;
+}
+
+
+//ajax availabe rooms search
+function search_room(){
+	var template_id = $("#template").val();
+	var from = $("#datepicker-from").val();
+	var to = $("#datepicker-to").val();
+	
+	if(from==''){
+		$("#date-error-message").html('From Date Field Empty.');
+		return false;
+	}
+	if(to==''){
+		$("#date-error-message").html('To Date Field Empty.');
+		return false;
+	}
+	$.ajax({
+		url: 'available_room',
+		type: 'post',
+		dataType: 'json',
+		data: {
+			template_id: template_id,
+			from: from,
+			to: to
+		},
+		success: function(response){
+			$("#date-error-message").html('');
+			var size = response.length;
+			$("#available-rooms-show").html('');
+			if(size==0){
+				$("#available-rooms-show").html('No Rooms available.');
+			}else{
+				for(var i=0; i<size;i++){
+					$("#available-rooms-show").append('<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="normal">'+
+															'<div class="room-no available ">'+response[i].room_no+'</div>'+
+													   '</div>');
+				}
+			}
+
+			$("#check_show").click();
+		}
+	});
+	return false();
 }

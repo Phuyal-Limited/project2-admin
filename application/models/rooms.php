@@ -152,7 +152,7 @@ class Rooms extends CI_Model{
 	  By: Bidur Subedi
 	  Nov 29, 2013 */
 	public function get_available_rooms_by_template($template_id,$fromDate,$toDate){
-		$rooms=$this->booking->get_Rooms($template);
+		$rooms=$this->booking->get_Rooms($template_id);
 		$validRooms = array();
 		foreach ($rooms as $aRoom) {
 			$roomStatus=$this->get_status_on_range($aRoom['room_id'],$fromDate,$toDate);

@@ -41,7 +41,7 @@
 				</div>
 			</div>
 			<div class="col-md-12 col-sm-4 col-xs-12">
-				<select class="form-control" name="template">
+				<select class="form-control" id="template" name="template">
 					<option value="any">Any Category</option>
 					<?php
 					foreach ($template as $aTemplate) {
@@ -59,8 +59,13 @@
 				<input class="form-control" type="text" id="datepicker-to" placeholder="To">
 				<div class='clear-small'></div>
 			</div>
+			<div class="col-md-12 col-sm-4 col-xs-12">
+				<div id="date-error-message"></div>
+				<div class='clear-small'></div>
+			</div>
 			<div id="room-filter-button">
-				<input class="btn btn-default inn-button room-filter-btn" data-toggle="modal" data-target="#myModal"  type="submit" value="Check">
+				<input class="btn btn-default inn-button room-filter-btn" id="check" type="submit" onclick="return search_room();" value="Check">
+				<input class="btn btn-default inn-button room-filter-btn" data-toggle="modal" data-target="#myModal" style="display:none;" id="check_show" type="submit" value="Check Show">
 			</div>
 
 		</div>
@@ -80,48 +85,9 @@
 				<div class="data-block" id="available-rooms">
 					<div class="data-block-content room-content">
 						
-						<div class="row room-boxes"> <!-- starts:room row -->
-							<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="normal">
-								<div class="room-no available ">201</div>
-							</div>
-							<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="normal">
-								<div class="room-no available ">201</div>
-							</div>
-							<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="normal">
-								<div class="room-no available ">201</div>
-							</div>
-							<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="normal">
-								<div class="room-no available ">201</div>
-							</div>
-							<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="normal">
-								<div class="room-no available ">201</div>
-							</div>
-							<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="normal">
-								<div class="room-no available ">201</div>
-							</div>
-							<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="normal">
-								<div class="room-no available ">201</div>
-							</div>
-							<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="normal">
-								<div class="room-no available ">201</div>
-							</div>
-							<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="normal">
-								<div class="room-no available ">201</div>
-							</div>
-							<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="normal">
-								<div class="room-no available ">201</div>
-							</div>
-							<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="normal">
-								<div class="room-no available ">201</div>
-							</div>
-							<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="normal">
-								<div class="room-no available ">201</div>
-							</div>
-							<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="normal">
-								<div class="room-no available ">201</div>
-							</div>
-
+						<div class="row room-boxes"  id="available-rooms-show"> <!-- starts:room row -->
 						</div><!-- starts:room row -->
+
 					</div>
 				</div>
 			</div><!-- ends:data-block-big -->
