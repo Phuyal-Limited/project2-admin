@@ -95,7 +95,7 @@
 											<label>Other Images</label>
 										</div>
 										<div class="col-sm-8 col-xs-8 col-md-8">
-											<input type="file" name="images" id="images" onChange="showimg(this);"/>
+											<input type="file" name="images" id="images" onChange="showimg(this);" disabled="disabled" />
 											<?php
 												if($hotel_details[0]->default_imgid==''){
 											?>

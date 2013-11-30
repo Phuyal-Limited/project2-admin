@@ -173,93 +173,107 @@ class Nepalinn extends CI_Controller {
 			}
 			
 			
+			if (!file_exists('./assets/images/hotel_image')) {
+    			mkdir('./assets/images/hotel_image', 0777);
+			}
 
-			//image upload to the folder
 			
+			$id_list = array();//
+			$details = array();//
 
-			$this->load->library('upload');
-
-	       $config['upload_path'] = './assets/images/hotel_image/';
-	       $config['allowed_types'] = 'jpg|png|jpeg|JPG|PNG|JPEG';
-	       
-	       $config['overwrite'] = TRUE;
-
-	       
-	        
-	       $details = array();
-	       $error = array();
-	       $upload_error = array();
-	       $id_list = array();
-	       foreach($_FILES as $field => $file)
-	       {
+			if($_FILES['default_image']['name']==''){
+				//nothing
+			}else{
+				//image upload to the folder
 				
-	           // No problems with the file
-	           if($file['error'] == 0)
-	           {
-	           		//provide the file name before uploading like 1.jpg, 2.png etc correspond to the image_id
-	           		if($field=='default_image'){
-		       			$config['file_name'] = $default_image;
-	       			}else{
-	       				$config['file_name'] = $last_id;
+			   $this->load->library('upload');
 
-	       				array_push($id_list, $last_id);    //id list for updating
-	       				$last_id = $last_id + 1;
-	       			}
-	       			$this->upload->initialize($config);
+		       $config['upload_path'] = './assets/images/hotel_image/';
+		       $config['allowed_types'] = 'jpg|png|jpeg|JPG|PNG|JPEG';
+		       
+		       $config['overwrite'] = TRUE;
+
+		       
+		        
+		       
+		       $error = array();
+		       $upload_error = array();
+		       
+		       foreach($_FILES as $field => $file)
+		       {
+					
+		           // No problems with the file
+		           if($file['error'] == 0)
+		           {
+		           		//provide the file name before uploading like 1.jpg, 2.png etc correspond to the image_id
+		           		if($field=='default_image'){
+			       			$config['file_name'] = $default_image;
+		       			}else{
+		       				$config['file_name'] = $last_id;
+
+		       				array_push($id_list, $last_id);    //id list for updating
+		       				
+		       			}
+		       			$this->upload->initialize($config);
 
 
 
-	               // So lets upload
-	               if ($this->upload->do_upload($field))
-	               {
+		               // So lets upload
+		               if ($this->upload->do_upload($field))
+		               {
 
-	                   $data = $this->upload->data();
+		                   $data = $this->upload->data();
 
-	                   $name = $data['file_name']; //get the name of file name like 1.jpg, 2.png - correspond to the image_id
-	                   
+		                   $name = $data['file_name']; //get the name of file name like 1.jpg, 2.png - correspond to the image_id
+		                   
 
-	                   	//default image update
-	                   	if($field=='default_image'){
-	                		$image_details = array(
-	                   			'name' => $hotel_name,
-	                    		'path' => 'http://admin.nepalinn.com/assets/images/hotel_image/'.$name,
-	                    		'alt' => $hotel_name
-	                    	);
+		                   	//default image update
+		                   	if($field=='default_image'){
+		                		$image_details = array(
+		                			'image_id' => $default_image,
+		                   			'name' => $hotel_name,
+		                    		'path' => 'http://admin.nepalinn.com/assets/images/hotel_image/'.$name,
+		                    		'alt' => $hotel_name
+		                    	);
 
-	                		if($default_image_id==0){
-	                			array_push($details, $image_details);
-	                		}else{
-	                			//do nothing as the file is uploaded to the folder and database contains the data
-	                		}
-	                    }else{
-	                    	$image_details = array(
-	                    		'name' => $hotel_name,
-	                    		'path' => 'http://admin.nepalinn.com/assets/images/hotel_image/'.$name,
-	                    		'alt' => $hotel_name
-	                    	);
-	                    	array_push($details, $image_details);
-	                	}
-	                }else
-	                {
-	                    $errors = $this->upload->display_errors();print_r($errors);
-	                    array_push($upload_error, $error);
-	                }
-	            }
-	            else{
-		    		array_push($error, 'Error');
-	            }
+		                		if($default_image_id==0){
+		                			array_push($details, $image_details);
+		                		}else{
+		                			//do nothing as the file is uploaded to the folder and database contains the data
+		                		}
+		                    }else{
+		                    	$image_details = array(
+		                    		'image_id' => $last_id,
+		                    		'name' => $hotel_name,
+		                    		'path' => 'http://admin.nepalinn.com/assets/images/hotel_image/'.$name,
+		                    		'alt' => $hotel_name
+		                    	);
+		                    	$last_id = $last_id + 1;
+		                    	array_push($details, $image_details);
+		                	}
+		                }else
+		                {
+		                    $errors = $this->upload->display_errors();print_r($errors);
+		                    array_push($upload_error, $error);
+		                }
+		            }
+		            else{
+			    		array_push($error, 'Error');
+		            }
+		        }
 	        }
 
 	        //change array of id list to comma separated string
 	        if($images_list != ''){
 	        	array_push($id_list, $images_list);	
 	        }
-	        
-	        $ids = implode(', ', $id_list);
+	        if($id_list!=array())
+	        	$ids = implode(', ', $id_list);
 
 
 	        //update images or to say add new images
-	        $this->dbase->image_add($details);
+	        if($details!=array())
+	        	$this->dbase->image_add($details);
 	        
 			//update hotel facilities
 			$hotel_facilities = array();
