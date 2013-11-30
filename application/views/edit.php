@@ -34,6 +34,16 @@
 
 									<div class="row form-row">  <!-- starts:form-row -->
 										<div class="col-sm-4 col-xs-4 col-md-4">
+											<label>City</label>
+										</div>
+										<div class="col-sm-8 col-xs-8 col-md-6">
+											<input class="form-control" type="text" name="city" id="city" value="<?php echo $hotel_details[0]->city;?>" />
+										</div>
+									</div> <!-- ends:form-row -->
+
+
+									<div class="row form-row">  <!-- starts:form-row -->
+										<div class="col-sm-4 col-xs-4 col-md-4">
 											<label>Phone1</label>
 										</div>
 										<div class="col-sm-8 col-xs-8 col-md-6">

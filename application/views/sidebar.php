@@ -2,15 +2,15 @@
 	<div class="row">
 		<div class="col-xs-5 col-md-5 profile-img-small">
 			<div class="thumbnail">
-				<img src="<?php echo base_url('assets/images/owner.jpg'); ?>">
+				<img src="<?php echo $default_image[0]->path; ?>">
 			</div>
 		</div>
 		<div class="col-xs-7 col-md-7 profile-details-small">
 			<div id="owner-name">
-				<a href="">Hotel Bidur Subedi</a>
+				<a href=""><?php echo $hotel_details[0]->name;?></a>
 			</div>
 			<div id="owner-location">
-				Lakeside, Pokhara
+				<?php echo $hotel_details[0]->address.', '.$hotel_details[0]->city;?>
 			</div>
 			<div class="inn-buttons" id="sidebar-buttons">
 				<a href="">Profile</a>

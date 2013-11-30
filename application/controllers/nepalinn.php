@@ -22,6 +22,11 @@ class Nepalinn extends CI_Controller {
 	{
 		$data['title'] = 'Nepalinn | Home';
 		$hotel_id = $this->session->userdata['hotel_id'];
+		
+		$data['hotel_details'] = $this->booking->get_Hotel_Details($hotel_id);
+		$default_image = $data['hotel_details'][0]->default_imgid;
+		$data['default_image'] =$this->dbase->get_Image_Details($default_image);
+
 		$data['template'] = $this->booking->get_Templates($hotel_id);
 		$data['rooms'] = $this->rooms->get_room_with_status_today($hotel_id);
 		$this->load->view('header', $data);
@@ -35,7 +40,12 @@ class Nepalinn extends CI_Controller {
 
 		$allrooms = array();
 		$hotel_id = $this->session->userdata['hotel_id'];
-		$data['template'] = $this->booking->get_Templates($hotel_id);
+		
+		$data['hotel_details'] = $this->booking->get_Hotel_Details($hotel_id);
+		$default_image = $data['hotel_details'][0]->default_imgid;
+		$data['default_image'] =$this->dbase->get_Image_Details($default_image);
+
+		$data['hotel_details'] = $this->booking->get_Hotel_Details($hotel_id);
 		$data['template_details'] = $this->booking->get_Templates($hotel_id);
 		foreach ($data['template_details'] as $eachTemplate) {
 			$template_id = $eachTemplate['template_id'];
@@ -80,6 +90,11 @@ class Nepalinn extends CI_Controller {
 		//Load the change password form
 		$data['title'] = 'Nepalinn | Change Password';
 		$hotel_id = $this->session->userdata['hotel_id'];
+		
+		$data['hotel_details'] = $this->booking->get_Hotel_Details($hotel_id);
+		$default_image = $data['hotel_details'][0]->default_imgid;
+		$data['default_image'] =$this->dbase->get_Image_Details($default_image);
+
 		$data['template'] = $this->booking->get_Templates($hotel_id);
 		$this->load->view('header', $data);
 		$this->load->view('change_password');
@@ -350,7 +365,7 @@ class Nepalinn extends CI_Controller {
 			);
 
 			$this->dbase->add_Template($template_details);
-			$this->room_setting();
+			redirect('room_setting');
 		}
 	}
 
@@ -383,6 +398,7 @@ class Nepalinn extends CI_Controller {
 		}
 	}
 
+	//get available rooms for search
 	public function available_room(){
 		if(!isset($_POST['template_id'])){
 			redirect('home');
