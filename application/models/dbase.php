@@ -36,7 +36,6 @@ class Dbase extends CI_Model{
 		$this->db->order_by('image_id', 'desc');
 		$image_details = $this->db->get('images');
 		$image_details = $image_details->result();
-		
 		if($image_details==array()){
 			$last_id = 1;
 		}else{

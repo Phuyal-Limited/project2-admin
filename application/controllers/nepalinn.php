@@ -173,11 +173,6 @@ class Nepalinn extends CI_Controller {
 			}
 			
 			
-			if (!file_exists('./assets/images/hotel_image')) {
-    			mkdir('./assets/images/hotel_image', 0777);
-			}
-
-			
 			$id_list = array();//
 			$details = array();//
 
