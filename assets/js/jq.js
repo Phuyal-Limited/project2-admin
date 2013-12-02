@@ -39,32 +39,11 @@ $(document).ready(function(){
   	});
 
 
-	//check if the to date is earlier than from date
-	$("#datepicker-to").change(function(){
-		var from = $("#datepicker-from").val();
-		var to = $("#datepicker-to").val();
-		if(to==''){
-			$("#datepicker-to").val('');
-		}else if(to<from){
-			$("#datepicker-to").val(from);
-		}else{
-			//nothing
-		}
-		return false;
-	});
-
-	$("#datepicker-from").change(function(){
-		var from = $("#datepicker-from").val();
-		var to = $("#datepicker-to").val();
-		if(to!=''){
-			if(to<from){
-				$("#datepicker-to").val(from);
-			}
-		}
-		return false;
-	});
-
-
+	
+	//to disable date pick before today
+  	$('#datepicker-from').datepicker({ minDate: 0 });
+  	//check out date must be atleast a day after the checkin date
+  	$('#datepicker-to').datepicker({ minDate: 1 });
 });
 
 
