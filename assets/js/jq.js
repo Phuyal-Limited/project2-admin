@@ -39,6 +39,50 @@ $(document).ready(function(){
   	});
 
 
+	//to check if the user tries to click the checkout date before checkin date
+	$("#datepicker-to").change(function(){
+		var from = $("#datepicker-from").val();
+		var to = $("#datepicker-to").val();
+		if(to==''){
+	   		$("#datepicker-to").val('');
+		}else if(to<from ){
+			var date2 = $('#datepicker-from').datepicker('getDate');
+            date2.setDate(date2.getDate()+1);
+            $('#datepicker-to').datepicker('setDate', date2);
+ 		}else if(to==from){
+  			var date2 = $('#datepicker-from').datepicker('getDate');
+            date2.setDate(date2.getDate()+1);
+            $('#datepicker-to').datepicker('setDate', date2);
+ 		}else{
+ 			//nothing
+ 		}
+ 		return false;
+	});
+
+
+	$("#datepicker-from").change(function(){
+		var from = $("#datepicker-from").val();
+ 		var to = $("#datepicker-to").val();
+ 		if(to!=''){
+  			if(to<from){
+  				var date2 = $('#datepicker-from').datepicker('getDate');
+            	date2.setDate(date2.getDate()+1);
+            	$('#datepicker-to').datepicker('setDate', date2);
+            	// $('#pick1').datepicker({ 
+            	// 	dateFormat: "yy-mm-dd",
+            	// 	minDate: date2 
+            	// });
+  			}
+  			if(to==from){
+  				var date2 = $('#datepicker-from').datepicker('getDate');
+            	date2.setDate(date2.getDate()+1);
+            	$('#datepicker-to').datepicker('setDate', date2);
+  			}
+		}
+		return false
+	});
+
+
 	
 	//to disable date pick before today
   	$('#datepicker-from').datepicker({ minDate: 0 });
@@ -98,6 +142,12 @@ function add_room(i){
 	var room_no = $("#room_no"+i).val();
 	var floor_no = $("#floor_no").val();
 	
+	if(room_no==''){
+		$("#error-msg"+i).html('Room No. Field Empty');
+		$("#previous").val(i);
+		return false;
+	}
+
 	$.ajax({
 		url: 'add_room',
 		type: 'post',
