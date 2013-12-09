@@ -304,6 +304,8 @@ padding: 4px 20px;
 	text-align: center;
 	padding: 6px;
 	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
 	color:#fff;
 	cursor:context-menu;
 }
@@ -421,6 +423,16 @@ padding: 4px 20px;
 	font-size: 20px;
 }
 
+.room-no p{
+	font-size: 11px;
+	padding: 0;
+	margin: 0;
+}
+
+#available-rooms-show .room-no{
+	height: 40px;
+	padding-top: 11px;
+}
 
 
 

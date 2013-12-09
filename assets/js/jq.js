@@ -211,8 +211,11 @@ function search_room(){
 				$("#available-rooms-show").html('No Rooms available.');
 			}else{
 				for(var i=0; i<size;i++){
-					$("#available-rooms-show").append('<div class="col-md-2 col-xs-3 col-sm-2 room-box"  rel="tooltip" title="normal">'+
-															'<div class="room-no available ">'+response[i].room_no+'</div>'+
+					$("#available-rooms-show").append('<div class="col-md-2 col-xs-3 col-sm-2 room-box" id="change-color'+i+'" onclick="return select_room('+i+');" rel="tooltip" title="normal">'+
+															'<div class="room-no available ">'+response[i].room_no+
+															'<input type="hidden" id="room_id'+i+'" value="'+response[i].room_id+'">'+
+															'<p id="selected'+i+'" style="display:none;">selected</p>'+
+															'</div>'+
 													   '</div>');
 				}
 			}
@@ -221,4 +224,60 @@ function search_room(){
 		}
 	});
 	return false();
+}
+
+
+//change color of selected room
+function select_room(i){
+	
+	var clr = $("#change-color"+i+" div").css("background-color");
+	
+	var rooms_array = new Array();
+	
+	var room_id = $("#room_id").val();
+	
+	
+	var eachRoom = $("#room_id"+i).val();
+	if(clr!='rgb(237, 111, 88)'){
+		$("#change-color"+i+" div").css( {"background-color": "#ed6f58" , "padding": "11px"} );
+		$('#selected'+i).css({"display": "none"});
+				
+		rooms_array.push(room_id);
+				
+		var rooms = new Array();
+		rooms = rooms_array.toString().split(",");
+		
+		for(var i=0; i<rooms.length;i++){
+			
+			if(rooms[i]==eachRoom){
+				roomIndex = Number(i);
+			}
+		}
+				
+		rooms.splice(roomIndex, 1);
+		
+		$("#room_id").val(rooms);
+
+		
+
+	}else{
+		$("#change-color"+i+" div").css( {"background-color": "#1A71AC" , "padding": "3px"} );
+		$('#selected'+i).css({"display": "block"});
+		
+		if(room_id==""){
+
+		}else{
+			
+			rooms_array.push(room_id);
+			
+		}
+		
+		rooms_array.push(eachRoom);
+		
+		
+		$("#room_id").val(rooms_array);
+		
+		
+	}
+	return false;
 }
