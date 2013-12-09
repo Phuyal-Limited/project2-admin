@@ -129,7 +129,7 @@ class Booking extends CI_Model{
 		else if ($flag == '1') {
 			$dateToday = date('Y-m-d');
 			$this->db->where('checkin_date', $dateToday);
-			$this->db->where('status', '0');
+			$this->db->where('status', '1');
 		}
 		else{
 			echo "flag set to invalid integer or the flag is not set at all.";
