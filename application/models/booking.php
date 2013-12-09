@@ -64,7 +64,7 @@ class Booking extends CI_Model{
 		$this->db->where('hotel_id', $hotelID);
 		$this->db->where('checkin_date', $dateToday);
 		$this->db->where('pickup_req', '1');
-		$this->db->where('status', '0');
+		$this->db->where('status', '1');
 		$id = $this->db->get('booking');
 		$details = array();
 		$resultDetails = array();
