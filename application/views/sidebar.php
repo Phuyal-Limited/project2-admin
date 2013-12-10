@@ -229,7 +229,7 @@
         </div>
       </div>
       <div class="modal-footer">
-      <input type="submit" value="Finish" class="btn btn-default">
+      <!-- <input type="submit" value="Finish" class="btn btn-default"> -->
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div><!-- /.modal-content -->
