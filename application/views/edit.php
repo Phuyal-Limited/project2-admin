@@ -127,7 +127,7 @@
 											<label>Description</label>
 										</div>
 										<div class="col-sm-8 col-xs-8 col-md-6">
-											<textarea class="form-control" name="description" id="description" value="<?php echo $hotel_details[0]->description; ?>"></textarea>
+											<textarea class="form-control" name="description" id="description"><?php echo $hotel_details[0]->description; ?></textarea>
 										</div>
 									</div> <!-- ends:form-row -->
 
