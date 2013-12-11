@@ -2,7 +2,10 @@
 	<div class="row">
 		<div class="col-xs-5 col-md-5 profile-img-small">
 			<div class="thumbnail">
-				<img src="<?php echo $default_image[0]->path; ?>">
+				<img src="<?php 
+					if(isset($default_image[0]))
+						echo $default_image[0]->path; 
+					?>">
 			</div>
 		</div>
 		<div class="col-xs-7 col-md-7 profile-details-small">
